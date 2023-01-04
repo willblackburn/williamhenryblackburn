@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="main.css" />
+
+    <!-- Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan&display=swap"
+      rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mina&display=swap"
+      rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Allison&display=swap"
+      rel="stylesheet" />
+
+    <!-- Animate On Scroll AOS -->
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- J Query -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="coda-body">
+      <!-- Nav -->
+
+      <div class="left">
+        <ul class="menu">
+          <!-- LOGO -->
+
+          <a href="index.html" class="logo-image"> </a>
+
+          <!-- Audio and Light Container -->
+
+          <div class="coda-audio-light-container">
+            <!-- DARK MODE TOGGLE -->
+
+            <label class="theme-switch" for="checkbox">
+              <input type="checkbox" id="checkbox" />
+              <div class="switch round"></div>
+            </label>
+
+            <!-- END DARK MODE TOGGLE -->
+
+            <!-- AUDIO PLAYER -->
+
+            <audio
+              id="audio-player"
+              autoplay
+              name="audio-player"
+              src="https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/audio/one's-life.mp3"></audio>
+            <div class="musicplayer">
+              <div class="toggle">
+                <div class="on">ON</div>
+                <div class="off">OFF</div>
+                <div class="slide"></div>
+              </div>
+            </div>
+
+            <!-- END AUDIO PLAYER -->
+          </div>
+          <!-- End Audio and Light Container -->
+          <li>
+            <input type="radio" id="menu-css" name="menu-item" />
+            <label for="menu-css"><a href="about.html">about</a></label>
+          </li>
+          <li>
+            <input type="radio" id="menu-showcase" name="menu-item" />
+            <label for="menu-showcase">Works</label>
+            <ul class="collapsed-menu">
+              <li><a href="photography.html">Photography</a></li>
+              <li><a href="paintings.html">Paintings</a></li>
+              <li><a href="sketches.html">Sketches</a></li>
+              <li><a href="architecture.html">Architectural</a></li>
+            </ul>
+          </li>
+          <li>
+            <input type="radio" id="menu-component" name="menu-item" />
+            <label for="menu-component"><a href="shop.html">Shop</a></label>
+          </li>
+          <li>
+            <input type="radio" id="menu-component" name="menu-item" />
+            <label for="menu-component"
+              ><a href="contact.html">Contact</a></label
+            >
+          </li>
+
+          <!-- SOCIALS -->
+
+          <ul class="soc">
+            <li>
+              <a class="icon-1 facebook" href="#" title="Facebook">
+                <div class="ir">
+                  <svg
+                    viewbox="0 0 512 512"
+                    preserveAspectRatio="xMidYMid meet"
+                    width="30"
+                    height="30">
+                    <path
+                      d="M211.9 197.4h-36.7v59.9h36.7V433.1h70.5V256.5h49.2l5.2-59.1h-54.4c0 0 0-22.1 0-33.7 0-13.9 2.8-19.5 16.3-19.5 10.9 0 38.2 0 38.2 0V82.9c0 0-40.2 0-48.8 0 -52.5 0-76.1 23.1-76.1 67.3C211.9 188.8 211.9 197.4 211.9 197.4z"></path>
+                  </svg>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a class="icon-28 youtube" href="#" title="YouTube">
+                <div class="ir">
+                  <svg
+                    viewbox="0 0 512 512"
+                    preserveAspectRatio="xMidYMid meet"
+                    width="30"
+                    height="30">
+                    <path
+                      d="M422.6 193.6c-5.3-45.3-23.3-51.6-59-54 -50.8-3.5-164.3-3.5-215.1 0 -35.7 2.4-53.7 8.7-59 54 -4 33.6-4 91.1 0 124.8 5.3 45.3 23.3 51.6 59 54 50.9 3.5 164.3 3.5 215.1 0 35.7-2.4 53.7-8.7 59-54C426.6 284.8 426.6 227.3 422.6 193.6zM222.2 303.4v-94.6l90.7 47.3L222.2 303.4z"></path>
+                  </svg>
+                </div>
+              </a>
+            </li>
+
+            <a href="" class="nav-copyright"
+              >copyright © 2050 |<br />design by will b {grandson}</a
+            >
+          </ul>
+        </ul>
+      </div>
+      <div class="right">
+        <div class="menu-toggle">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <!-- Coda Container  -->
+
+        <div class="coda-container">
+          <!-- Section Full With -->
+
+          <div class="portfolio-item-container" id="home">
+            <!-- Section Photography -->
+
+            <div class="section filter-grid-gallery" id="photography">
+              <div class="gallery">
+                <div class="image-wrapper">
+                  <img
+                    src="https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/paintings/boats-under-construction.webp"
+                    alt="indian girl lying on grass photography"
+                    class="photo" />
+                </div>
+                <div class="image-wrapper">
+                  <img
+                    src="https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/paintings/boats-under-construction.webp"
+                    alt="indian girl lying on grass photography"
+                    class="photo" />
+                </div>
+                <div class="image-wrapper">
+                  <img
+                    src="https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/paintings/boats-under-construction.webp"
+                    alt="indian girl lying on grass photography"
+                    class="photo" />
+                </div>
+                <div class="image-wrapper">
+                  <img
+                    src="https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/paintings/boats-under-construction.webp"
+                    alt="indian girl lying on grass photography"
+                    class="photo" />
+                </div>
+                <div class="image-wrapper">
+                  <img
+                    src="https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/paintings/boats-under-construction.webp"
+                    alt="indian girl lying on grass photography"
+                    class="photo" />
+                </div>
+                <div class="image-wrapper">
+                  <img
+                    src="https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/paintings/boats-under-construction.webp"
+                    alt="indian girl lying on grass photography"
+                    class="photo" />
+                </div>
+                <div class="image-wrapper">
+                  <img
+                    src="https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/paintings/boats-under-construction.webp"
+                    alt="indian girl lying on grass photography"
+                    class="photo" />
+                </div>
+                <div class="image-wrapper">
+                  <img
+                    src="https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/paintings/boats-under-construction.webp"
+                    alt="indian girl lying on grass photography"
+                    class="photo" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Coda Container -->
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPTS -->
+
+    <script src="js/aos.js"></script>
+    <script defer src="js/audio-controls.js"></script>
+    <script src="js/dark-light-toggle.js"></script>
+    <script src="js/responsive-nav.js"></script>
+    <script src="js/gallery-popup.js"></script>
+
+    <!-- Art Gallery Lightbox -->
+
+    <!-- <script>
+      $(".gallery div").on("click", function (e) {
+        $(this).toggleClass("lightbox");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    </script> -->
+  </body>
+</html>
