@@ -169,7 +169,7 @@ html {
   right: 0;
   top: 0;
   transition: 0.4s;
-  transform: scale(0.4);
+  /* transform: scale(0.4); */
   transform: rotate(90deg);
 }
 
