@@ -326,6 +326,18 @@ h2 {
   letter-spacing: 0.02em;
   font-weight: 700;
   margin-bottom: 0.25em;
+  transition: 0.75s;
+  
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 10px;
+  text-decoration-skip-ink: none;
+  text-underline-offset: -10px;
+}
+
+h2:hover{
+  margin-bottom: 2rem;
+  text-decoration-color: var(--brandcolor1);
 }
 
 h3 {
@@ -472,7 +484,7 @@ label {
     VIDEO HOME
 -------------------------------------------------------------------------------*/
 
-.video-container {
+/* .video-container {
   display: grid;
   width: 100vw;
   grid-template-rows: 100%;
@@ -504,7 +516,7 @@ label {
 
 .video-title {
   color: var(--text-dark);
-}
+} */
 
 /*-------------------------------------------------------------------------------
     PORTFOLIO
@@ -694,6 +706,7 @@ label {
 /*-------------------------------------------------------------------------------
     Home
 -------------------------------------------------------------------------------*/
+
 .project-full-width {
   background-image: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-modernism-1-colour.webp");
   background-size: cover;
@@ -769,6 +782,14 @@ label {
   background-position: 50% 100%;
 }
 
+.img4 {
+  background-image: url(/public/img/whb-bio-8.webp);
+  /* background-image: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-2.webp"); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+}
+
 .biography {
   grid-column: 1 / span 12;
   grid-row: 105 / span 5;
@@ -803,7 +824,7 @@ label {
   flex-direction: column;
   justify-content: center;
   background-color: rgba(224, 216, 199, 0.7);
-  padding: 4rem 2rem 2rem 2rem;
+  padding: 2rem 2rem 2rem 2rem;
   margin-left: 1.3rem;
 }
 
@@ -980,12 +1001,14 @@ label {
 .soc {
   display: block;
   list-style: none;
-  padding-left: 2rem;
-  width: 9rem;
+  padding-left: 3rem;
+  width: 12rem;
+  zoom: .7;
   max-width: 100%;
 }
 
 .soc li {
+  padding-right: .3rem;
   display: inline-block;
 }
 
@@ -1023,6 +1046,39 @@ label {
 }
 .icon-28:hover {
   background: var(--text);
+}
+
+/*-------------------------------------------------------------------------------
+    Contact
+-------------------------------------------------------------------------------*/
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  place-items: center;
+}
+
+.contact-label{
+  font-family: var(--font-family2);
+  font-size: var(--font-clamp);
+  color: var(--text-light);
+}
+
+.contact-input {
+  background-color: var(--brandcolor1);
+}
+
+.contact-send {
+  font-size: var(--font-clamp);
+  background-color: var(--brandcolor1);
+  padding: .5rem;
+}
+
+.img-contact {
+  background-image: url(/public/img/whb-contact.webp);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
 }
 
 /*-------------------------------------------------------------------------------
