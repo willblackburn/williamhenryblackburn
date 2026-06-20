@@ -1239,6 +1239,16 @@ label {
   background-position: 80% 100%;
 }
 
+.img2 .biography-b {
+  grid-column: 1;
+  align-self: end;
+  justify-self: start;
+  width: min(100%, var(--bio-box-max-width));
+  max-width: var(--bio-box-max-width);
+  height: fit-content;
+  margin-bottom: 1.3rem;
+}
+
 .img3 {
   --about-bg-image: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-2.webp');
   background-position: 50% 100%;
