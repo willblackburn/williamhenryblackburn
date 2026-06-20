@@ -18,6 +18,10 @@
   # command = "echo 'default context'"
   command = "npm run build"
 
+[build.environment]
+  NODE_VERSION = "20"
+  NPM_CONFIG_PRODUCTION = "false"
+
 # [[plugins]]
   # Installs the Lighthouse Build Plugin for all deploy contexts
   # package = "@netlify/plugin-lighthouse"
