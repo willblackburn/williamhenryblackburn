@@ -19,6 +19,9 @@
     "url": "https://github.com/willblackburn/williamhenryblackburn/issues"
   },
   "homepage": "https://github.com/willblackburn/williamhenryblackburn#readme",
+  "engines": {
+    "node": "18.x"
+  },
   "dependencies": {
     "lenis": "^1.3.23",
     "vite": "^6.3.5"
