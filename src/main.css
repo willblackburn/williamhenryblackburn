@@ -256,7 +256,7 @@ input:checked + .switch:before {
     background-color 0.2s ease;
 }
 
-.toggle:hover {
+.audio-toggle:hover {
   color: var(--brandcolor2);
   border-color: var(--brandcolor2);
 }
@@ -280,7 +280,7 @@ input:checked + .switch:before {
   display: block;
 }
 
-.toggle:not(.active) {
+.audio-toggle:not(.active) {
   color: var(--brandcolor2);
   border-color: var(--brandcolor2);
 }
@@ -509,6 +509,10 @@ p {
   list-style: none;
 }
 
+.menu > li.menu-logo {
+  margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
+}
+
 .menu > li.menu-footer {
   position: absolute;
   bottom: 0;
@@ -699,15 +703,15 @@ a.nav-link:hover,
   .coda-body.sidebar-collapsed .logo-monogram::before {
     content: 'W';
     font-family: var(--font-logo);
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     letter-spacing: 0.02em;
     line-height: 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 2.125rem;
-    height: 2.125rem;
+    width: 2.875rem;
+    height: 2.875rem;
     box-sizing: border-box;
     border: 1px solid color-mix(in srgb, var(--text) 35%, transparent);
   }
