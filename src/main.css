@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&display=swap');
+
 /* Copyright Will Blackburn 2022
 Site Design by Coda4 Design */
 
@@ -52,17 +54,37 @@ html {
   --medium-padding: 2em;
   --large-padding: 3em;
 
-  --font-family1: 'Alata', sans-serif;
-  --font-family2: 'Alata', sans-serif;
-  --font-familyalt: 'Alata', sans-serif;
-  /* text-shadow: 1px 1px 1px var(--brandcolor3); */
+  --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-body:
+    'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    sans-serif;
 
-  --font-clamp: clamp(1.1rem, 2.5vw, 1.25rem);
-  --font-clamp-h1: clamp(1.4rem, 5.5vw, 2.3rem);
-  --font-clamp-h2: clamp(2rem, 2.5vw, 2.1rem);
-  --font-clamp-h3: clamp(0.9rem, 2.5vw, 1.1rem);
-  --font-clamp-nav: clamp(0.7rem, 2.5vw, 1.2rem);
-  --font-clamp-footer: clamp(0.8rem, 2.5vw, 1rem);
+  /* Legacy aliases */
+  --font-family1: var(--font-body);
+  --font-family2: var(--font-body);
+  --font-familyalt: var(--font-display);
+
+  /* Type scale */
+  --font-clamp-body: clamp(1rem, 0.35vw + 0.95rem, 1.125rem);
+  --font-clamp-body-lg: clamp(1.0625rem, 0.5vw + 1rem, 1.25rem);
+  --font-clamp-h1: clamp(2.25rem, 2vw + 1.5rem, 3.75rem);
+  --font-clamp-h2: clamp(1.75rem, 1.2vw + 1.25rem, 3.75rem);
+  --font-clamp-h3: clamp(1.375rem, 0.8vw + 1.1rem, 2rem);
+  --font-clamp-h4: clamp(0.8125rem, 0.2vw + 0.75rem, 0.9375rem);
+  --font-clamp-nav: clamp(0.8125rem, 0.25vw + 0.75rem, 0.9375rem);
+  --font-clamp-caption: clamp(0.75rem, 0.2vw + 0.7rem, 0.875rem);
+  --font-clamp-ui: clamp(0.8125rem, 0.2vw + 0.75rem, 0.9375rem);
+
+  --line-height-body: 1.65;
+  --line-height-display: 1.15;
+  --line-height-ui: 1.4;
+
+  --letter-spacing-display: -0.015em;
+  --letter-spacing-ui: 0.06em;
+  --letter-spacing-caption: 0.02em;
+
+  --font-clamp: var(--font-clamp-body);
+  --font-clamp-footer: var(--font-clamp-caption);
   --text-shadow: 1px 1px 1px var(--brandcolor3);
 
   --padding-clamp: clamp(0.5vw, 1.5vw, 2vw);
@@ -184,6 +206,7 @@ input:checked + .switch:before {
   position: relative;
   user-select: none;
   cursor: pointer;
+  font-family: var(--font-body);
 }
 
 .toggle .on,
@@ -194,6 +217,9 @@ input:checked + .switch:before {
   left: 35px;
   height: 26px;
   width: 29px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-ui);
   transition: all 0.2s;
 }
 
@@ -257,10 +283,21 @@ body {
   justify-content: center;
 }
 
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-clamp-body);
+  line-height: var(--line-height-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 .coda-body ul li a {
   color: var(--text);
-  font-size: 0.8rem;
-  font-family: var(--font-family1);
+  font-size: var(--font-clamp-nav);
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-ui);
+  text-transform: uppercase;
 }
 
 .coda-body ul li a:hover {
@@ -274,14 +311,15 @@ body {
 .section {
   background-color: var(--bg);
   border: 1vw solid var(--brandcolor1);
-  /* border-image: url(/public/img/texture/wood-texture.webp) 30 round; */
+  /* border-image: url(/img/texture/wood-texture.webp) 30 round; */
 }
 
 a {
-  font-size: var(--font-clamp);
+  font-family: var(--font-body);
+  font-size: var(--font-clamp-ui);
+  font-weight: 500;
   color: var(--brandcolor3);
   text-decoration: none;
-  text-transform: uppercase;
 }
 
 .cta-link {
@@ -290,52 +328,62 @@ a {
   text-align: center;
   max-width: 13rem;
   border: solid 1px var(--text-light);
-  font-size: 2rem;
+  font-family: var(--font-body);
+  font-size: var(--font-clamp-ui);
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-ui);
+  text-transform: uppercase;
   color: var(--text-light);
-  padding: 0.5rem;
+  padding: 0.75rem 1rem;
   margin-top: 1rem;
 }
 
+h1,
+h2,
+h3,
+.hover-a {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-display);
+  line-height: var(--line-height-display);
+  text-transform: none;
+}
+
 h1 {
-  font-family: var(--font-family1);
   font-size: var(--font-clamp-h1);
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  font-weight: 600;
   color: var(--text-light);
-  text-transform: uppercase;
 }
 
 h2 {
-  font-family: var(--font-family1);
   color: var(--text-light);
   font-size: var(--font-clamp-h2);
-  letter-spacing: 0.02em;
-  font-weight: 700;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.35em;
 }
 
 h3 {
-  font-family: var(--font-family1);
   color: var(--text);
-  font-size: 2rem;
-  font-weight: 600;
+  font-size: var(--font-clamp-h3);
+  font-weight: 500;
   margin-top: 0.3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 h4 {
-  font-family: var(--font-family1);
+  font-family: var(--font-body);
   color: var(--text);
-  font-size: 1.3rem;
-  font-weight: 400;
+  font-size: var(--font-clamp-h4);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-ui);
   text-transform: uppercase;
 }
 
 p {
-  font-family: var(--font-family2);
+  font-family: var(--font-body);
   color: var(--text-light);
-  font-size: var(--font-clamp);
+  font-size: var(--font-clamp-body);
   font-weight: 400;
+  line-height: var(--line-height-body);
 }
 
 .center-title {
@@ -385,7 +433,12 @@ p {
   cursor: pointer;
   padding-left: 2rem;
   padding-bottom: 0.5rem;
-  font-style: italic;
+  font-family: var(--font-body);
+  font-size: var(--font-clamp-nav);
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: var(--letter-spacing-ui);
+  text-transform: uppercase;
 }
 
 .collapsed-menu li {
@@ -424,18 +477,24 @@ p {
 }
 
 label {
-  font-size: 0.8rem;
+  font-family: var(--font-body);
+  font-size: var(--font-clamp-ui);
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-ui);
   text-transform: uppercase;
 }
 
 .nav-copyright {
   position: absolute;
   bottom: 5px;
-  font-size: 0.6rem;
+  font-family: var(--font-body);
+  font-size: var(--font-clamp-caption);
+  font-weight: 400;
   color: var(--text);
-  font-style: italic;
-  line-height: 1rem;
-  text-transform: lowercase;
+  font-style: normal;
+  line-height: var(--line-height-ui);
+  letter-spacing: var(--letter-spacing-caption);
+  text-transform: none;
   padding-left: 0.6rem;
 }
 
@@ -511,7 +570,7 @@ label {
 
 .portfolio-item-container {
   max-width: 100vw;
-  font-family: var(--font-family1);
+  font-family: var(--font-body);
 }
 
 .portfolio-item {
@@ -532,19 +591,25 @@ label {
 }
 
 .portfolio-description {
-  font-family: var(--font-family1);
+  font-family: var(--font-display);
   color: var(--brandcolor1);
-  text-transform: uppercase;
-  line-height: 1.2;
+  font-size: var(--font-clamp-h3);
+  font-weight: 500;
+  line-height: var(--line-height-display);
+  letter-spacing: var(--letter-spacing-display);
+  text-transform: none;
   padding: 5.5rem 0rem 1.5rem 1.5rem;
   text-align: end;
 }
 
 .portfolio-description2 {
-  font-family: var(--font-family1);
+  font-family: var(--font-display);
   color: var(--brandcolor1);
-  text-transform: uppercase;
-  line-height: 1.2;
+  font-size: var(--font-clamp-h3);
+  font-weight: 500;
+  line-height: var(--line-height-display);
+  letter-spacing: var(--letter-spacing-display);
+  text-transform: none;
   padding: 1rem;
   text-align: start;
 }
@@ -587,10 +652,10 @@ label {
     grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
   }
   .portfolio-description {
-    font-size: 1rem;
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
   }
   .portfolio-description2 {
-    font-size: 1rem;
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
   }
   .portfolio-item {
     height: 12rem;
@@ -655,10 +720,10 @@ label {
     height: 13rem;
   }
   .portfolio-description {
-    font-size: 1rem;
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
   }
   .portfolio-description2 {
-    font-size: 1rem;
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
   }
 }
 
@@ -675,10 +740,10 @@ label {
     height: 19rem;
   }
   .portfolio-description {
-    font-size: 1.5rem;
+    font-size: var(--font-clamp-h3);
   }
   .portfolio-description2 {
-    font-size: 1.5rem;
+    font-size: var(--font-clamp-h3);
   }
 }
 
@@ -688,7 +753,7 @@ label {
 
 .project-full-width {
   /* background-image: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-modernism-1-colour.webp"); */
-  background-image: url(/public/img/whb-main-screen-2.webp);
+  background-image: url(/img/whb-main-screen-2.webp);
   background-size: cover;
   background-position: 42% 50%;
   max-width: 100vw;
@@ -713,15 +778,20 @@ label {
 }
 
 .home-span {
-  font-family: var(--font-family2);
+  font-family: var(--font-body);
   display: flex;
-  font-size: 1.1rem;
+  font-size: var(--font-clamp-body-lg);
+  line-height: var(--line-height-body);
   color: var(--text-light);
   padding-top: 1rem;
 }
 
 .dob p {
-  font-weight: 700;
+  font-family: var(--font-body);
+  font-size: var(--font-clamp-caption);
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-ui);
+  text-transform: uppercase;
   padding-top: 0.5rem;
 }
 
@@ -782,7 +852,7 @@ label {
 }
 
 .img4 {
-  --about-bg-image: url(/public/img/whb-bio-7.webp);
+  --about-bg-image: url(/img/whb-bio-7.webp);
   background-image: var(--about-bg-image);
   background-size: cover;
   background-repeat: no-repeat;
@@ -790,7 +860,7 @@ label {
 }
 
 .img5 {
-  --about-bg-image: url(/public/img/whb-photography.webp);
+  --about-bg-image: url(/img/whb-photography.webp);
   background-image: var(--about-bg-image);
   background-size: cover;
   background-repeat: no-repeat;
@@ -861,7 +931,7 @@ label {
 
 .about-info {
   max-width: 100%;
-  line-height: 120%;
+  line-height: var(--line-height-body);
   padding-block: 0.8rem;
 }
 
@@ -909,15 +979,19 @@ label {
 }
 
 .project-title {
-  font-size: 1.4rem;
+  font-family: var(--font-display);
+  font-size: var(--font-clamp-h2);
+  font-weight: 500;
+  line-height: var(--line-height-display);
+  letter-spacing: var(--letter-spacing-display);
   color: var(--text);
-  font-weight: bold;
 }
 
 .project-description {
   padding-block: 2em;
-  line-height: 145%;
+  line-height: var(--line-height-body);
   max-width: 40ch;
+  font-size: var(--font-clamp-body);
 }
 
 @media screen and (max-width: 990px) {
@@ -1106,23 +1180,33 @@ label {
 }
 
 .contact-label {
-  font-family: var(--font-family2);
-  font-size: var(--font-clamp);
+  font-family: var(--font-body);
+  font-size: var(--font-clamp-ui);
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-ui);
   color: var(--text-light);
+  text-transform: uppercase;
 }
 
 .contact-input {
+  font-family: var(--font-body);
+  font-size: var(--font-clamp-body);
+  line-height: var(--line-height-ui);
   background-color: var(--brandcolor1);
 }
 
 .contact-send {
-  font-size: var(--font-clamp);
+  font-family: var(--font-body);
+  font-size: var(--font-clamp-ui);
+  font-weight: 500;
+  letter-spacing: var(--letter-spacing-ui);
+  text-transform: uppercase;
   background-color: var(--brandcolor1);
-  padding: 0.5rem;
+  padding: 0.75rem 1rem;
 }
 
 .img-contact {
-  background-image: url(/public/img/whb-contact.webp);
+  background-image: url(/img/whb-contact.webp);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 100%;
