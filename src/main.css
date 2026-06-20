@@ -433,6 +433,11 @@ p {
     top: 0;
     padding-top: 1rem;
   }
+
+  .menu > li.menu-footer {
+    position: static;
+    padding: 1rem 0.75rem 1rem 1.6rem;
+  }
 }
 
 /*-------------------------------------------------------------------------------
@@ -443,6 +448,20 @@ p {
   position: sticky;
   height: 95vh;
   top: 2rem;
+}
+
+.menu > li.menu-logo,
+.menu > li.menu-footer {
+  list-style: none;
+}
+
+.menu > li.menu-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.85rem 0.75rem 0.85rem 1.6rem;
+  margin: 0;
 }
 
 .menu input[type='radio'],
@@ -1296,31 +1315,6 @@ body.gallery-lightbox-open {
 /*-------------------------------------------------------------------------------
     Socials
 -------------------------------------------------------------------------------*/
-
-.soc {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  padding: 0.85rem 0.75rem 0.85rem 1.6rem;
-  margin: 0;
-  width: auto;
-  max-width: 100%;
-}
-
-.soc li {
-  padding-right: 0.3rem;
-  display: inline-block;
-}
-
-.soc a,
-.soc svg {
-  display: block;
-  /* border: 1px solid var(--text); */
-}
 
 .icon-28:hover,
 .icon-4:hover,
