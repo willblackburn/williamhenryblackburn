@@ -12,7 +12,7 @@ Site Design by Coda4 Design */
 }
 
 html {
-  scroll-behavior: smooth;
+  /* scroll-behavior handled by Lenis */
   /* scroll-padding-top: 10px; */
 }
 
@@ -31,7 +31,7 @@ html {
 
 :root {
   --text-light: #211f1f;
-  --bg-light: #B49C7C;
+  --bg-light: #b49c7c;
   /* --bg-light: #f5f7f6; */
 
   --text-dark: #fffff0;
@@ -41,7 +41,7 @@ html {
   --inverted-light: #211f1f;
   --inverted-dark: #f2f3f4;
 
-  --brandcolor1: rgba(236, 229, 213, .9);
+  --brandcolor1: rgba(236, 229, 213, 0.9);
   --brandcolor2: #416e7c;
   --brandcolor3: #b38f74;
 
@@ -52,13 +52,12 @@ html {
   --medium-padding: 2em;
   --large-padding: 3em;
 
-
   --font-family1: 'Alata', sans-serif;
   --font-family2: 'Alata', sans-serif;
   --font-familyalt: 'Alata', sans-serif;
   /* text-shadow: 1px 1px 1px var(--brandcolor3); */
 
-  --font-clamp: clamp(1.1rem, 2.5vw, 1.1rem);
+  --font-clamp: clamp(1.1rem, 2.5vw, 1.25rem);
   --font-clamp-h1: clamp(1.4rem, 5.5vw, 2.3rem);
   --font-clamp-h2: clamp(2rem, 2.5vw, 2.1rem);
   --font-clamp-h3: clamp(0.9rem, 2.5vw, 1.1rem);
@@ -68,17 +67,17 @@ html {
 
   --padding-clamp: clamp(0.5vw, 1.5vw, 2vw);
 
-  --brandlogo-light: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/logo-dark.webp");
-  --brandlogo-dark: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/logo-light.webp");
+  --brandlogo-light: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/logo-dark.webp');
+  --brandlogo-dark: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/logo-light.webp');
 
-  --homeimage-light: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/bg-light-theme.webp");
-  --homeimage-dark: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/bg1.webp");
+  --homeimage-light: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/bg-light-theme.webp');
+  --homeimage-dark: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/bg1.webp');
 
-  --presskitimage-light: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/pk-bg-light.webp");
-  --presskitimage-dark: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/pk-bg-dark.webp");
+  --presskitimage-light: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/pk-bg-light.webp');
+  --presskitimage-dark: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/pk-bg-dark.webp');
 
-  --homelogo-light: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/logo-dark.webp");
-  --homelogo-dark: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/logo-light.webp");
+  --homelogo-light: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/logo-dark.webp');
+  --homelogo-dark: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/logo-light.webp');
 }
 
 @media (prefers-color-scheme: light) {
@@ -97,7 +96,7 @@ html {
   }
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
   --text: var(--text-dark);
   --bg: var(--bg-dark);
   --inverted: var(--inverted-dark);
@@ -108,7 +107,7 @@ html {
   --presskitimage: var(--presskitimage-dark);
 }
 
-[data-theme="light"] {
+[data-theme='light'] {
   --text: var(--text-light);
   --bg: var(--bg-light);
   --inverted: var(--inverted-light);
@@ -364,7 +363,7 @@ p {
   top: 2rem;
 }
 
-.menu input[type="radio"],
+.menu input[type='radio'],
 .menu-toggle {
   display: none;
   z-index: 999;
@@ -374,7 +373,9 @@ p {
   max-height: 0;
   opacity: 0;
   visibility: hidden;
-  transition: max-height 0.1s ease-out, opacity 0.1s ease-in;
+  transition:
+    max-height 0.1s ease-out,
+    opacity 0.1s ease-in;
 }
 
 .menu > li > label,
@@ -400,11 +401,13 @@ p {
   color: #999;
 }
 
-.menu input[type="radio"]:checked ~ .collapsed-menu {
+.menu input[type='radio']:checked ~ .collapsed-menu {
   max-height: 300px;
   opacity: 1;
   visibility: visible;
-  transition: max-height 0.35s ease-out, opacity 0.1s ease-in 0.2s;
+  transition:
+    max-height 0.35s ease-out,
+    opacity 0.1s ease-in 0.2s;
 }
 
 .logo-image {
@@ -747,44 +750,48 @@ label {
 }
 
 .img0 {
-  background-image: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-5.webp");
+  --about-bg-image: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-5.webp');
+  background-image: var(--about-bg-image);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 80% 100%;
 }
 
 .img1 {
-  background-image: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-6.webp");
+  --about-bg-image: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-6.webp');
+  background-image: var(--about-bg-image);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 80% 100%;
 }
 
 .img2 {
-  background-image: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-3.webp");
+  --about-bg-image: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-3.webp');
+  background-image: var(--about-bg-image);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 80% 100%;
 }
 
 .img3 {
-  background-image: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-2.webp");
+  --about-bg-image: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-2.webp');
+  background-image: var(--about-bg-image);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 100%;
 }
 
 .img4 {
-  background-image: url(/public/img/whb-bio-7.webp);
-  /* background-image: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-2.webp"); */
+  --about-bg-image: url(/public/img/whb-bio-7.webp);
+  background-image: var(--about-bg-image);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 80% 100%;
 }
 
 .img5 {
-  background-image: url(/public/img/whb-photography.webp);
-  /* background-image: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-2.webp"); */
+  --about-bg-image: url(/public/img/whb-photography.webp);
+  background-image: var(--about-bg-image);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 80% 100%;
@@ -915,15 +922,48 @@ label {
 
 @media screen and (max-width: 990px) {
   .project-about {
-    grid-column-gap: 0.1rem;
+    display: block;
+    min-height: auto;
+    grid-column-gap: 0;
+    background-image: none;
+  }
+
+  .project-about::before {
+    content: '';
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    max-height: 45vh;
+    background-image: var(--about-bg-image);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .img4::before {
+    background-position: 35% center;
+  }
+
+  .img5::before {
+    background-position: 40% center;
   }
 
   .biography,
   .biography-a,
   .biography-b,
   .biography-c {
-    padding: 5rem 1rem 1rem 1rem;
-    margin-left: 0rem;
+    grid-column: unset;
+    grid-row: unset;
+    max-width: 100%;
+    width: 100%;
+    padding: 1.5rem 1rem;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+
+  .bio-links {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
@@ -953,22 +993,27 @@ label {
 }
 
 .lightbox {
-  position: absolute;
+  position: fixed;
   z-index: 999;
-  width: 100%;
-  height: auto;
-  top: 0;
-  left: 0;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(42, 42, 42, 0.85);
   transition: all 0.4s ease-in;
   padding: 2rem;
+  box-sizing: border-box;
+  overflow: auto;
 }
 
 .lightbox img {
-  display: flex;
-  margin: 0 auto;
+  display: block;
+  margin: auto;
   position: relative;
   width: 60vw;
+  max-width: 100%;
+  max-height: calc(100vh - 4rem);
+  object-fit: contain;
   box-shadow: 1px 1px 10px rgba(42, 42, 42, 0.85);
   transition: all 0.4s ease-in;
 }
@@ -1003,12 +1048,12 @@ label {
   list-style: none;
   padding-left: 3rem;
   width: 12rem;
-  zoom: .7;
+  zoom: 0.7;
   max-width: 100%;
 }
 
 .soc li {
-  padding-right: .3rem;
+  padding-right: 0.3rem;
   display: inline-block;
 }
 
@@ -1024,7 +1069,9 @@ label {
 .icon-2:hover,
 .icon-1:hover {
   fill: #0e1a25;
-  transition: background-color 0.5s, transform 10.5s ease-out;
+  transition:
+    background-color 0.5s,
+    transform 10.5s ease-out;
 }
 
 .icon-1 {
@@ -1058,7 +1105,7 @@ label {
   place-items: center;
 }
 
-.contact-label{
+.contact-label {
   font-family: var(--font-family2);
   font-size: var(--font-clamp);
   color: var(--text-light);
@@ -1071,7 +1118,7 @@ label {
 .contact-send {
   font-size: var(--font-clamp);
   background-color: var(--brandcolor1);
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .img-contact {
@@ -1086,21 +1133,26 @@ label {
 -------------------------------------------------------------------------------*/
 
 .hover-a {
-  --b: 0.1em;   /* the thickness of the line */
+  --b: 0.1em; /* the thickness of the line */
   --c: #aa6e20; /* the color */
-  
+
   color: #0000;
   padding-block: var(--b);
-  background: 
-    linear-gradient(var(--c) 50%,#000 0) 0% calc(100% - var(--_p,0%))/100% 200%,
-    linear-gradient(var(--c) 0 0) 0% var(--_p,0%)/var(--_p,0%) var(--b) no-repeat;
-  -webkit-background-clip: text,padding-box;
-          background-clip: text,padding-box;
-  transition: .3s var(--_s,0s) linear,background-size .3s calc(.3s - var(--_s,0s));
+  background:
+    linear-gradient(var(--c) 50%, #000 0) 0% calc(100% - var(--_p, 0%)) / 100%
+      200%,
+    linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b)
+      no-repeat;
+  -webkit-background-clip: text, padding-box;
+  background-clip: text, padding-box;
+  transition:
+    0.3s var(--_s, 0s) linear,
+    background-size 0.3s calc(0.3s - var(--_s, 0s));
 }
-.hover-a:hover {
+.hover-a:hover,
+.hover-a.in-view {
   --_p: 100%;
-  --_s: .3s;
+  --_s: 0.3s;
 }
 
 /*-------------------------------------------------------------------------------

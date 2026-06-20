@@ -1,17 +1,23 @@
 $(document).ready(function () {
-  $('.toggle').click(function () {
-    $(this).toggleClass('active')
+  const $toggle = $('.musicplayer .toggle')
+  const audio = $('#audio-player')[0]
+
+  if (!$toggle.length || !audio) return
+
+  function syncToggle() {
+    $toggle.toggleClass('active', audio.paused)
+  }
+
+  syncToggle()
+
+  $toggle.on('click', function () {
+    if (audio.paused) {
+      audio.play().catch(() => syncToggle())
+    } else {
+      audio.pause()
+    }
   })
 
-  $('.slide-body').click(function () {
-    $('.slide-body .slide').toggleClass('active')
-  })
-
-  $('.on').click(function () {
-    $('#audio-player')[0].play()
-  })
-
-  $('.off').click(function () {
-    $('#audio-player')[0].pause()
-  })
+  audio.addEventListener('play', syncToggle)
+  audio.addEventListener('pause', syncToggle)
 })

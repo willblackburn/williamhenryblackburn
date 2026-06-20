@@ -1,4 +1,6 @@
-$(".gallery div").on("click", function (e) {
+$(".gallery div").on("click", function () {
+  if (!$(this).hasClass("lightbox")) {
+    $(".gallery .lightbox").removeClass("lightbox");
+  }
   $(this).toggleClass("lightbox");
-  window.scrollTo({ top: 0, behavior: "smooth" });
 });
