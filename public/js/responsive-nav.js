@@ -1,16 +1,24 @@
-let isMenuOpen = false,
-  mq
+let isMenuOpen = false
+let mq
+
+const codaBody = document.querySelector('.coda-body')
+const menuToggle = document.querySelector('.menu-toggle')
+
 document.querySelectorAll('.collapsed-menu > li').forEach((el) => {
   el.addEventListener('click', (event) => {
-    document.querySelector('.right > .text-container').innerHTML =
-      event.target.innerHTML
+    const textContainer = document.querySelector('.right > .text-container')
+    if (textContainer) {
+      textContainer.innerHTML = event.target.innerHTML
+    }
     if (window.matchMedia) {
-      mq = window.matchMedia('(min-width: 640px)')
+      mq = window.matchMedia('(min-width: 841px)')
       onMediaChange(mq)
     }
   })
 })
-document.querySelector('.menu-toggle').addEventListener('click', () => {
+
+menuToggle.addEventListener('click', (event) => {
+  event.stopPropagation()
   if (!isMenuOpen) {
     openMenu()
   } else {
@@ -18,25 +26,34 @@ document.querySelector('.menu-toggle').addEventListener('click', () => {
   }
 })
 
+codaBody.addEventListener('click', (event) => {
+  if (
+    isMenuOpen &&
+    !event.target.closest('.left') &&
+    !event.target.closest('.menu-toggle')
+  ) {
+    closeMenu()
+  }
+})
+
 if (window.matchMedia) {
-  mq = window.matchMedia('(min-width: 640px)')
-  mq.addListener(onMediaChange)
+  mq = window.matchMedia('(min-width: 841px)')
+  mq.addEventListener('change', onMediaChange)
+  onMediaChange(mq)
 }
 
 function closeMenu() {
-  document.querySelector('.coda-body').style.transform = 'translateX(-300px)'
+  codaBody.classList.remove('nav-open')
   isMenuOpen = false
 }
 
 function openMenu() {
-  document.querySelector('.coda-body').style.transform = 'translateX(0)'
+  codaBody.classList.add('nav-open')
   isMenuOpen = true
 }
 
-function onMediaChange(mq) {
-  if (mq.matches) {
-    document.querySelector('.coda-body').style.transform = 'translateX(0)'
-  } else {
+function onMediaChange(mediaQuery) {
+  if (mediaQuery.matches) {
     closeMenu()
   }
 }

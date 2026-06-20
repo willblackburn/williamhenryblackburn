@@ -33,19 +33,17 @@ html {
 
 :root {
   --text-light: #211f1f;
-  --bg-light: #dad2c8;
-  /* --bg-light: #f5f7f6; */
+  --bg-light: #ebe6dc;
 
   --text-dark: #fffff0;
-  --bg-dark: #242222;
-  /* --bg-dark: #211f1f; */
+  --bg-dark: #2a2622;
 
   --inverted-light: #211f1f;
   --inverted-dark: #f2f3f4;
 
-  --brandcolor1: rgba(236, 229, 213, 0.9);
-  --brandcolor2: #828586;
-  --brandcolor3: #b6bdba;
+  --brandcolor1: #f6f2ea;
+  --brandcolor2: #4a6169;
+  --brandcolor3: #9a9083;
 
   --nav-cta-brand-light: #211f1f;
   --nav-cta-brand-dark: #febf22;
@@ -377,12 +375,40 @@ p {
 
 @media (max-width: 840px) {
   .coda-body {
-    transform: translateX(-300px);
-    width: calc(100% + 300px);
-    transition: transform 0.2s ease-out;
+    width: 100%;
+    transform: none;
   }
+
   .coda-body > .left {
-    min-width: 300px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: auto;
+    bottom: 0;
+    width: min(300px, 85vw);
+    min-width: 0;
+    z-index: 1000;
+    background-color: var(--bg);
+    transform: translateX(100%);
+    transition: transform 0.25s ease-out;
+    overflow-y: auto;
+    box-shadow: -4px 0 24px rgba(33, 31, 31, 0.18);
+  }
+
+  .coda-body.nav-open > .left {
+    transform: translateX(0);
+  }
+
+  .coda-body.nav-open::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(33, 31, 31, 0.45);
+    z-index: 999;
+  }
+
+  .coda-body > .right {
+    width: 100%;
   }
 }
 
@@ -471,21 +497,31 @@ label {
 
 @media (max-width: 840px) {
   .menu-toggle {
-    display: block;
-    background-color: var(--brandcolor2);
-    padding: 0.3rem;
-    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 6px;
+    background: transparent;
+    border: 1px solid color-mix(in srgb, var(--text) 35%, transparent);
+    box-sizing: border-box;
+    padding: 0.4rem;
+    position: fixed;
     cursor: pointer;
-    width: 2rem;
-    height: 2rem;
-    left: 1.2rem;
+    width: 2.25rem;
+    height: 2.25rem;
+    right: 1.2rem;
+    left: auto;
     top: 1.2rem;
+    z-index: 1001;
+    color: var(--text);
   }
 
   .menu-toggle div {
-    width: 35px;
-    height: 5px;
-    margin: 6px 0;
+    width: 100%;
+    height: 0;
+    margin: 0;
+    border-top: 2px dashed currentColor;
   }
 }
 
