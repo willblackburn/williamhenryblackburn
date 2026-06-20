@@ -55,7 +55,20 @@ html {
   --small-padding: 1em;
   --medium-padding: 2em;
   --large-padding: 3em;
-  --bio-box-max-width: 58rem;
+  --bio-box-max-width: 67rem;
+  --bio-box-opacity: 90%;
+  --bio-box-bg: color-mix(
+    in srgb,
+    var(--brandcolor1) var(--bio-box-opacity),
+    transparent
+  );
+  --bio-box-contact-bg: color-mix(
+    in srgb,
+    var(--bg) var(--bio-box-opacity),
+    transparent
+  );
+  --bio-box-margin: 4rem;
+  --bio-box-padding: clamp(1.25rem, 2vw, 2rem);
 
   --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
   --font-logo: 'Cormorant Garamond', 'Times New Roman', serif;
@@ -94,7 +107,6 @@ html {
   --padding-clamp: clamp(0.5vw, 1.5vw, 2vw);
   --section-inset: clamp(1.25rem, 2.25vw, 2.5rem);
   --content-gutter-collapsed: clamp(0.875rem, 1.25vw, 1.125rem);
-  --bio-edge-margin-collapsed: clamp(0.875rem, 1vw, 1rem);
 
   --image-filter: contrast(1.06) saturate(0.84) brightness(0.97);
   --image-blend-mode: multiply;
@@ -646,23 +658,6 @@ a.nav-link:hover,
     padding-left: var(--content-gutter-collapsed);
   }
 
-  .coda-body.sidebar-collapsed .home-header,
-  .coda-body.sidebar-collapsed .biography-b,
-  .coda-body.sidebar-collapsed .biography-c,
-  .coda-body.sidebar-collapsed .project-about:not(.img5) > .biography {
-    margin-left: var(--bio-edge-margin-collapsed);
-  }
-
-  .coda-body.sidebar-collapsed .img5 .biography,
-  .coda-body.sidebar-collapsed .img6 .biography-a {
-    margin-left: auto;
-    margin-right: var(--bio-edge-margin-collapsed);
-  }
-
-  .coda-body.sidebar-collapsed .img-contact .biography-b {
-    margin: var(--bio-edge-margin-collapsed);
-  }
-
   .coda-body.sidebar-collapsed .menu {
     align-items: center;
   }
@@ -1169,6 +1164,17 @@ label {
   grid-column-gap: 0.4rem;
 }
 
+.home-header,
+.biography,
+.biography-a,
+.biography-b,
+.biography-c {
+  background-color: var(--bio-box-bg);
+  padding: var(--bio-box-padding);
+  margin-left: var(--bio-box-margin);
+  margin-bottom: var(--bio-box-margin);
+}
+
 .home-header {
   grid-column: 1 / span 12;
   grid-row: 105 / span 5;
@@ -1176,10 +1182,6 @@ label {
   max-width: var(--bio-box-max-width);
   flex-direction: column;
   justify-content: center;
-  background-color: var(--brandcolor1);
-  padding: 1rem 1rem 1rem 1rem;
-  margin-left: 1.3rem;
-  margin-bottom: 1.3rem;
 }
 
 .home-span {
@@ -1206,8 +1208,7 @@ label {
   }
 
   .home-header {
-    padding: 1rem 1rem 1rem 1rem;
-    margin-left: 0rem;
+    margin-left: 0;
   }
 }
 
@@ -1246,7 +1247,6 @@ label {
   width: min(100%, var(--bio-box-max-width));
   max-width: var(--bio-box-max-width);
   height: fit-content;
-  margin-bottom: 1.3rem;
 }
 
 .img3 {
@@ -1267,7 +1267,7 @@ label {
 .img5 .biography {
   grid-column: 80 / span 12;
   margin-left: auto;
-  margin-right: 1.3rem;
+  margin-right: var(--bio-box-margin);
 }
 
 .img6 {
@@ -1286,7 +1286,6 @@ label {
   max-height: calc(100% - 14rem);
   object-fit: contain;
   z-index: 2;
-  border: 0.25rem solid var(--brandcolor1);
   box-shadow: 14px 28px 60px rgba(33, 31, 31, 0.45);
   transform: translateX(2.5rem);
 }
@@ -1312,7 +1311,7 @@ label {
   width: min(54%, 58rem);
   max-width: 58rem;
   margin-left: auto;
-  margin-right: 1.3rem;
+  margin-right: var(--bio-box-margin);
 }
 
 .biography {
@@ -1322,10 +1321,6 @@ label {
   max-width: var(--bio-box-max-width);
   flex-direction: column;
   justify-content: center;
-  background-color: var(--brandcolor1);
-  padding: 1rem 1rem 1rem 1rem;
-  margin-left: 1.3rem;
-  margin-bottom: 1.3rem;
 }
 
 .biography-a {
@@ -1336,10 +1331,6 @@ label {
   flex-direction: column;
   /* align-content: center; */
   justify-content: center;
-  background-color: var(--brandcolor1);
-  padding: 2rem 2rem 2rem 2rem;
-  margin-left: 1.3rem;
-  margin-bottom: 1.3rem;
 }
 
 .biography-b {
@@ -1348,9 +1339,6 @@ label {
   max-width: var(--bio-box-max-width);
   flex-direction: column;
   justify-content: center;
-  background-color: var(--brandcolor1);
-  padding: 2rem 2rem 2rem 2rem;
-  margin-left: 1.3rem;
 }
 
 .biography-c {
@@ -1360,10 +1348,8 @@ label {
   max-width: var(--bio-box-max-width);
   flex-direction: column;
   justify-content: center;
-  background-color: var(--brandcolor1);
-  padding: 1rem 1rem 1rem 1rem;
-  margin-left: 1.3rem;
-  margin-bottom: 1.3rem;
+  margin-left: auto;
+  margin-right: var(--bio-box-margin);
 }
 
 /* .biography-a,
@@ -1527,7 +1513,6 @@ label {
     grid-row: unset;
     max-width: 100%;
     width: 100%;
-    padding: 1.5rem 1rem;
     margin-left: 0;
     margin-bottom: 0;
   }
@@ -1743,10 +1728,10 @@ body.gallery-lightbox-open {
 .img-contact .biography-b {
   grid-column: unset;
   grid-row: unset;
-  margin: 1.3rem;
-  width: min(42rem, calc(100% - 2.6rem));
-  max-width: min(42rem, calc(100% - 2.6rem));
-  background-color: var(--bg);
+  margin: var(--bio-box-margin);
+  width: min(42rem, calc(100% - (2 * var(--bio-box-margin))));
+  max-width: min(42rem, calc(100% - (2 * var(--bio-box-margin))));
+  background-color: var(--bio-box-contact-bg);
   box-shadow: 0 12px 40px rgba(33, 31, 31, 0.14);
 }
 
