@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;1,14..32,400&family=Pinyon+Script&display=swap');
 
 /* Copyright Will Blackburn 2022
 Site Design by Coda4 Design */
@@ -33,7 +33,7 @@ html {
 
 :root {
   --text-light: #211f1f;
-  --bg-light: #eeebe7;
+  --bg-light: #f7f3ed;
 
   --text-dark: #fffff0;
   --bg-dark: #2a2622;
@@ -42,10 +42,12 @@ html {
   --inverted-dark: #f2f3f4;
 
   --brandcolor1: #f6f2ea;
-  --brandcolor2: #4a6169;
+  --brandcolor2: #c2751d;
   --brandcolor3: #9a9083;
 
   --mobile-nav-height: 5rem;
+  --sidebar-width-expanded: 18rem;
+  --sidebar-width-collapsed: 4.75rem;
 
   --nav-cta-brand-light: #211f1f;
   --nav-cta-brand-dark: #febf22;
@@ -56,6 +58,7 @@ html {
   --bio-box-max-width: 58rem;
 
   --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --font-logo: 'Pinyon Script', 'Brush Script MT', cursive;
   --font-body:
     'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     sans-serif;
@@ -257,8 +260,9 @@ body {
 }
 
 .coda-body > .left {
-  width: 18rem;
-  max-width: 300px;
+  width: var(--sidebar-width-expanded);
+  max-width: var(--sidebar-width-expanded);
+  flex-shrink: 0;
 }
 
 .coda-body > .right {
@@ -448,6 +452,7 @@ p {
   position: sticky;
   height: 95vh;
   top: 2rem;
+  padding-bottom: 6.5rem;
 }
 
 .menu > li.menu-logo,
@@ -479,12 +484,15 @@ p {
     opacity 0.1s ease-in;
 }
 
-.menu > li > label,
-.collapsed-menu li {
+.menu > li > label.nav-link,
+a.nav-link,
+button.nav-link {
   color: var(--text);
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
   cursor: pointer;
-  padding-left: 2rem;
+  padding: 0.45rem 1.5rem 0.45rem 2rem;
   padding-bottom: 0.5rem;
   font-family: var(--font-body);
   font-size: var(--font-clamp-nav);
@@ -492,19 +500,41 @@ p {
   font-style: normal;
   letter-spacing: var(--letter-spacing-ui);
   text-transform: uppercase;
+  text-decoration: none;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
 }
 
-.collapsed-menu li {
-  padding-left: 3rem;
+.nav-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  fill: currentColor;
+}
+
+.nav-label {
+  white-space: nowrap;
+  overflow: hidden;
+  transition:
+    opacity 0.2s ease,
+    max-width 0.25s ease;
+  max-width: 12rem;
+}
+
+.menu > li > label.nav-link:hover,
+a.nav-link:hover,
+.collapsed-menu .nav-link:hover {
+  color: #999;
+}
+
+.collapsed-menu .nav-link {
+  padding-left: 2.75rem;
 }
 
 .link-expanded {
   font-size: smaller;
-}
-
-.menu > li > label:hover,
-.collapsed-menu li:hover {
-  color: #999;
 }
 
 .menu input[type='radio']:checked ~ .collapsed-menu {
@@ -518,15 +548,152 @@ p {
 
 .logo-image {
   display: flex;
-  flex-direction: column;
-  background-image: var(--brandlogo);
-  width: 8rem;
+  align-items: center;
+  justify-content: flex-start;
+  width: auto;
+  min-width: 8rem;
   height: 4.5rem;
-  background-repeat: no-repeat;
   margin-left: 1.8rem;
   margin-top: 2rem;
   z-index: 999;
-  zoom: 1.1;
+  color: var(--text);
+  text-decoration: none;
+  text-transform: none;
+  font-size: inherit;
+  letter-spacing: normal;
+  transition:
+    min-width 0.25s ease,
+    height 0.25s ease,
+    margin 0.25s ease;
+}
+
+.logo-monogram {
+  font-family: var(--font-logo);
+  font-size: clamp(2.75rem, 3.5vw, 3.5rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.sidebar-toggle-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  transition: transform 0.25s ease;
+}
+
+.sidebar-toggle {
+  color: var(--text);
+}
+
+@media (min-width: 841px) {
+  .coda-body > .left {
+    transition:
+      width 0.25s ease,
+      max-width 0.25s ease;
+    overflow: visible;
+  }
+
+  .coda-body.sidebar-collapsed > .left {
+    width: var(--sidebar-width-collapsed);
+    max-width: var(--sidebar-width-collapsed);
+  }
+
+  .coda-body.sidebar-collapsed .nav-label {
+    opacity: 0;
+    max-width: 0;
+    visibility: hidden;
+  }
+
+  .coda-body.sidebar-collapsed .menu > li > label.nav-link,
+  .coda-body.sidebar-collapsed a.nav-link,
+  .coda-body.sidebar-collapsed button.nav-link {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+    gap: 0;
+  }
+
+  .coda-body.sidebar-collapsed .logo-image {
+    min-width: 0;
+    width: 100%;
+    height: auto;
+    min-height: 2.75rem;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+  }
+
+  .coda-body.sidebar-collapsed .logo-monogram {
+    font-size: 1.65rem;
+    letter-spacing: 0.02em;
+  }
+
+  .coda-body.sidebar-collapsed .menu > li.menu-footer {
+    padding-left: 0.65rem;
+    padding-right: 0.65rem;
+  }
+
+  .coda-body.sidebar-collapsed .coda-audio-light-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .coda-body.sidebar-collapsed .sidebar-toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  .coda-body.sidebar-collapsed .nav-item-has-submenu {
+    position: relative;
+  }
+
+  .coda-body.sidebar-collapsed
+    .menu
+    input[type='radio']:checked
+    ~ .collapsed-menu {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .coda-body.sidebar-collapsed .nav-item-has-submenu:hover .collapsed-menu,
+  .coda-body.sidebar-collapsed
+    .nav-item-has-submenu:focus-within
+    .collapsed-menu {
+    position: absolute;
+    left: calc(100% + 0.35rem);
+    top: 0;
+    min-width: 13rem;
+    max-height: none;
+    opacity: 1;
+    visibility: visible;
+    background-color: var(--bg);
+    border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+    box-shadow: 4px 8px 28px rgba(33, 31, 31, 0.14);
+    padding: 0.35rem 0;
+    z-index: 1002;
+  }
+
+  .coda-body.sidebar-collapsed .collapsed-menu .nav-link {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+
+  .coda-body.sidebar-collapsed .collapsed-menu .nav-label {
+    opacity: 1;
+    max-width: 12rem;
+    visibility: visible;
+  }
+}
+
+@media (max-width: 840px) {
+  .sidebar-toggle {
+    display: none;
+  }
 }
 
 .mobile-top-bar {
@@ -566,17 +733,20 @@ label {
 
   .mobile-top-bar .logo-image,
   .mobile-top-bar__logo {
-    display: block;
-    width: 9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    min-width: 0;
     height: 3.5rem;
     margin: 0;
     padding: 0;
-    zoom: 1;
     flex-shrink: 0;
     align-self: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+  }
+
+  .mobile-top-bar .logo-monogram {
+    font-size: clamp(2.25rem, 7vw, 3rem);
   }
 
   .menu-toggle {
@@ -972,7 +1142,7 @@ label {
   top: clamp(1rem, 3vh, 2.5rem);
   left: clamp(1rem, 2vw, 2.5rem);
   right: auto;
-  width: min(48%, 52rem);
+  width: min(40%, 46rem);
   height: auto;
   max-height: calc(100% - 14rem);
   object-fit: contain;
@@ -984,14 +1154,14 @@ label {
 
 @media screen and (min-width: 1200px) {
   .keymer-staff-photo {
-    width: min(52%, 56rem);
+    width: min(42%, 50rem);
     transform: translateX(3.5rem);
   }
 }
 
 @media screen and (min-width: 1600px) {
   .keymer-staff-photo {
-    width: min(54%, 60rem);
+    width: min(44%, 54rem);
     transform: translateX(4rem);
   }
 }
@@ -999,10 +1169,11 @@ label {
 .img6 .biography-a {
   position: relative;
   z-index: 1;
-  grid-column: 80 / span 12;
+  grid-column: 1 / -1;
+  width: min(54%, 58rem);
+  max-width: 58rem;
   margin-left: auto;
   margin-right: 1.3rem;
-  max-width: min(var(--bio-box-max-width), 50rem);
 }
 
 .biography {
@@ -1203,6 +1374,12 @@ label {
     max-width: 100%;
   }
 
+  .img-contact .biography-b {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
   .biography,
   .biography-a,
   .biography-b,
@@ -1353,25 +1530,49 @@ body.gallery-lightbox-open {
 -------------------------------------------------------------------------------*/
 
 .contact-form {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  place-items: center;
+  width: 100%;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.contact-form p {
+  margin: 0;
 }
 
 .contact-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
   font-family: var(--font-body);
   font-size: var(--font-clamp-ui);
   font-weight: 500;
   letter-spacing: var(--letter-spacing-ui);
-  color: var(--text-light);
+  color: var(--text);
   text-transform: uppercase;
 }
 
 .contact-input {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
   font-family: var(--font-body);
   font-size: var(--font-clamp-body);
   line-height: var(--line-height-ui);
+  color: var(--text);
   background-color: var(--brandcolor1);
+  border: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+  padding: 0.65rem 0.75rem;
+}
+
+.contact-textarea {
+  min-height: 8rem;
+  max-height: 14rem;
+  resize: vertical;
 }
 
 .contact-send {
@@ -1380,8 +1581,11 @@ body.gallery-lightbox-open {
   font-weight: 500;
   letter-spacing: var(--letter-spacing-ui);
   text-transform: uppercase;
+  color: var(--text);
   background-color: var(--brandcolor1);
-  padding: 0.75rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
 }
 
 .img-contact {
@@ -1389,6 +1593,20 @@ body.gallery-lightbox-open {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.img-contact .biography-b {
+  grid-column: unset;
+  grid-row: unset;
+  margin: 1.3rem;
+  width: min(42rem, calc(100% - 2.6rem));
+  max-width: min(42rem, calc(100% - 2.6rem));
+  background-color: color-mix(in srgb, var(--bg) 94%, var(--brandcolor1));
+  box-shadow: 0 12px 40px rgba(33, 31, 31, 0.14);
 }
 
 /*-------------------------------------------------------------------------------

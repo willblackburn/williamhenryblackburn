@@ -17,7 +17,7 @@ document.querySelectorAll('.collapsed-menu > li').forEach((el) => {
   })
 })
 
-menuToggle.addEventListener('click', (event) => {
+menuToggle?.addEventListener('click', (event) => {
   event.stopPropagation()
   if (!isMenuOpen) {
     openMenu()
