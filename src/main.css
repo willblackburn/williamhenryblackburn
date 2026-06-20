@@ -1184,6 +1184,12 @@ label {
     margin-bottom: 0;
   }
 
+  [data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
   .bio-links {
     flex-wrap: wrap;
     justify-content: center;
