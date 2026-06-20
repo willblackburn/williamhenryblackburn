@@ -77,7 +77,7 @@ Site Design by Coda4 Design */
   --font-familyalt: var(--font-display);
 
   /* Type scale */
-  --font-clamp-body: clamp(1rem, 0.35vw + 0.95rem, 1.325rem);
+  --font-clamp-body: clamp(1rem, 0.35vw + 0.95rem, 1.425rem);
   --font-clamp-body-lg: clamp(1.0625rem, 0.5vw + 1rem, 1.25rem);
   --font-clamp-h1: clamp(2.25rem, 2vw + 1.5rem, 3.75rem);
   --font-clamp-h2: clamp(1.75rem, 1.2vw + 1.25rem, 3.75rem);
@@ -381,7 +381,7 @@ h2,
 h3,
 .hover-a {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: var(--letter-spacing-display);
   line-height: var(--line-height-display);
   text-transform: none;
