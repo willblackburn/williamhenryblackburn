@@ -44,4 +44,5 @@ if (!prefersReducedMotion) {
   requestAnimationFrame(raf)
 
   window.lenis = mainLenis
+  window.dispatchEvent(new Event('lenis-ready'))
 }
