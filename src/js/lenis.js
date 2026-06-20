@@ -7,19 +7,41 @@ const prefersReducedMotion = window.matchMedia(
 ).matches
 
 if (!prefersReducedMotion) {
-  const lenis = new Lenis({
-    autoRaf: true,
+  const lenisInstances = []
+
+  const mainLenis = new Lenis({
+    autoRaf: false,
     anchors: true,
-    allowNestedScroll: true,
+    prevent: (node) => Boolean(node.closest?.('.filter-grid-gallery')),
   })
 
-  document.querySelectorAll('.filter-grid-gallery').forEach((element) => {
-    element.setAttribute('data-lenis-prevent', '')
+  lenisInstances.push(mainLenis)
+
+  document.querySelectorAll('.filter-grid-gallery').forEach((wrapper) => {
+    const content = wrapper.querySelector('.gallery')
+    if (!content) return
+
+    lenisInstances.push(
+      new Lenis({
+        wrapper,
+        content,
+        eventsTarget: wrapper,
+        autoRaf: false,
+        overscroll: false,
+      })
+    )
   })
 
-  lenis.on('scroll', () => {
-    window.dispatchEvent(new Event('scroll'))
-  })
+  const onScroll = () => window.dispatchEvent(new Event('scroll'))
 
-  window.lenis = lenis
+  lenisInstances.forEach((lenis) => lenis.on('scroll', onScroll))
+
+  function raf(time) {
+    lenisInstances.forEach((lenis) => lenis.raf(time))
+    requestAnimationFrame(raf)
+  }
+
+  requestAnimationFrame(raf)
+
+  window.lenis = mainLenis
 }

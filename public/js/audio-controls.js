@@ -5,7 +5,9 @@ $(document).ready(function () {
   if (!$toggle.length || !audio) return
 
   function syncToggle() {
-    $toggle.toggleClass('active', audio.paused)
+    const isPaused = audio.paused
+    $toggle.toggleClass('active', isPaused)
+    $toggle.attr('aria-pressed', String(!isPaused))
   }
 
   syncToggle()

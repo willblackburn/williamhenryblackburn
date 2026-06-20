@@ -75,71 +75,45 @@
             >
           </li>
 
-          <!-- Audio and Light Container -->
-
-          <div class="coda-audio-light-container">
-            <!-- DARK MODE TOGGLE -->
-
-            <label class="theme-switch" for="checkbox">
-              <input type="checkbox" id="checkbox" />
-              <div class="switch round"></div>
-            </label>
-
-            <!-- END DARK MODE TOGGLE -->
-
-            <!-- AUDIO PLAYER -->
-
-            <audio
-              id="audio-player"
-              name="audio-player"
-              src="https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/audio/one's-life.mp3"></audio>
-            <div class="musicplayer">
-              <div class="toggle">
-                <div class="on">ON</div>
-                <div class="off">OFF</div>
-                <div class="slide"></div>
-              </div>
-            </div>
-
-            <!-- END AUDIO PLAYER -->
-          </div>
-          <!-- End Audio and Light Container -->
-
-          <!-- SOCIALS -->
+          <!-- Nav footer -->
 
           <ul class="soc">
-            <li>
-              <a class="icon-1 facebook" href="#" title="Facebook">
-                <div class="ir">
-                  <svg
-                    viewbox="0 0 512 512"
-                    preserveAspectRatio="xMidYMid meet"
-                    width="30"
-                    height="30">
-                    <path
-                      d="M211.9 197.4h-36.7v59.9h36.7V433.1h70.5V256.5h49.2l5.2-59.1h-54.4c0 0 0-22.1 0-33.7 0-13.9 2.8-19.5 16.3-19.5 10.9 0 38.2 0 38.2 0V82.9c0 0-40.2 0-48.8 0 -52.5 0-76.1 23.1-76.1 67.3C211.9 188.8 211.9 197.4 211.9 197.4z"></path>
-                  </svg>
-                </div>
-              </a>
-            </li>
-            <li>
-              <a class="icon-28 youtube" href="#" title="YouTube">
-                <div class="ir">
-                  <svg
-                    viewbox="0 0 512 512"
-                    preserveAspectRatio="xMidYMid meet"
-                    width="30"
-                    height="30">
-                    <path
-                      d="M422.6 193.6c-5.3-45.3-23.3-51.6-59-54 -50.8-3.5-164.3-3.5-215.1 0 -35.7 2.4-53.7 8.7-59 54 -4 33.6-4 91.1 0 124.8 5.3 45.3 23.3 51.6 59 54 50.9 3.5 164.3 3.5 215.1 0 35.7-2.4 53.7-8.7 59-54C426.6 284.8 426.6 227.3 422.6 193.6zM222.2 303.4v-94.6l90.7 47.3L222.2 303.4z"></path>
-                  </svg>
-                </div>
-              </a>
-            </li>
+            <div class="coda-audio-light-container">
+              <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="switch round"></div>
+              </label>
 
-            <a href="" class="nav-copyright"
-              >copyright © 2050 |<br />design by will b {grandson}</a
-            >
+              <audio
+                id="audio-player"
+                name="audio-player"
+                src="https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/audio/one's-life.mp3"></audio>
+              <div class="musicplayer">
+                <button
+                  type="button"
+                  class="toggle audio-toggle"
+                  aria-label="Toggle background audio">
+                  <svg
+                    class="audio-icon audio-icon--playing"
+                    viewBox="0 0 24 24"
+                    width="22"
+                    height="22"
+                    aria-hidden="true">
+                    <path
+                      d="M3 10v4h4l5 5V5L7 10H3zm7.5 2.5c0-1.65-1.02-3.07-2.5-3.71v7.42c1.48-.64 2.5-2.06 2.5-3.71zm2.5 0c0 2.48-1.36 4.64-3.38 5.78l1.46 1.46A7.935 7.935 0 0 0 18 12.5C18 8.97 15.51 6.03 12 5.05v2.09c2.06.73 3.5 2.62 3.5 4.86z" />
+                  </svg>
+                  <svg
+                    class="audio-icon audio-icon--muted"
+                    viewBox="0 0 24 24"
+                    width="22"
+                    height="22"
+                    aria-hidden="true">
+                    <path
+                      d="M3.63 3.63a.996.996 0 0 0 0 1.41L7.29 8.7 7 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.002 8.002 0 0 0 3.69-1.81l2.04 2.04 1.41-1.41L5.05 3.63c-.39-.39-1.02-.39-1.42 0zM12 4l-2.05 2.05L12 8.1V4zm6.36 10.36-1.55-1.55A3.978 3.978 0 0 0 16 12.5v-2.16l-1.51-1.51C15.51 9.64 16 10.99 16 12.5c0 1.12-.39 2.15-1.04 2.96l1.46 1.46A7.935 7.935 0 0 0 18 12.5c0-1.21-.27-2.36-.76-3.39l-1.88-1.88v2.06c0 .55-.11 1.08-.3 1.57z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
           </ul>
         </ul>
       </div>
@@ -162,15 +136,69 @@
               <div class="biography" data-aos="fade-in">
                 <h1 class="hover-a">Art Director</h1>
                 <p class="about-info">
-                  William Henry Blackburn, husband to Dhanlaxmi and father to
-                  Munindra Nigel Blackburn, was an award winning Art director,
-                  painter, and Photographer in both England and India throughout
-                  the 1940's to the 1980's. He continued to hold prominence in
-                  the advertising industry working for Saatchi and Saatchi up
-                  until his death in 1995. His works have largely remained out
-                  of the public eye at his sons home since then, with just a few
-                  of his paintings in the hands of close familly and friends or
-                  in a range of Museums across Great Britain and India.
+                  William Henry Blackburn (1918–1995), husband to Dhanlaxmi and
+                  father to Munindra Nigel Blackburn, was a British art
+                  director, draughtsman, calligrapher, and exhibition designer
+                  whose career moved between wartime service, government
+                  information work in India, and decades of commercial
+                  advertising. After the Second World War he became Art Director
+                  at D.J. Keymer &amp; Co. Ltd. in Bombay, and later at the
+                  agency's head office in Calcutta. He designed and supervised
+                  exhibition stands and trade-fair displays as readily as he
+                  directed print campaigns, occupying a rare space where fine
+                  art, lettering, and commercial design met in a single working
+                  life.
+                </p>
+              </div>
+            </div>
+
+            <!-- Section About -->
+
+            <div class="section project-about img6" id="keymer">
+              <img
+                class="keymer-staff-photo"
+                src="/img/dj-keymer-staff.png"
+                alt="D.J. Keymer staff photograph, Calcutta office"
+                loading="lazy"
+                decoding="async" />
+              <div class="biography-a" data-aos="fade-in">
+                <h2 class="hover-a">D.J. Keymer</h2>
+                <p class="about-info">
+                  D.J. Keymer &amp; Co. Ltd. was one of the leading British
+                  advertising agencies in India, with studios in Bombay and
+                  Calcutta that shaped mid-century commercial art across the
+                  subcontinent. William spent the heart of his postwar career
+                  there as Art Director, working on major accounts for Shell,
+                  B.O.A.C., Dunlop, I.C.I., Philips, Liptons, and the Tea Board.
+                  The Calcutta office brought together an extraordinary circle
+                  of visual talent. He worked alongside
+                  <a
+                    href="https://en.wikipedia.org/wiki/Annada_Munsi"
+                    target="popup"
+                    onclick="window.open('https://en.wikipedia.org/wiki/Annada_Munsi','popup','width=600,height=600'); return false;">
+                    Annada Munshi</a
+                  >, the art director regarded as the father of Indian
+                  commercial art, who shaped a generation of designers in layout,
+                  calligraphy, and Swadeshi visual identity.
+                  <a
+                    href="https://en.wikipedia.org/wiki/Signet_Press"
+                    target="popup"
+                    onclick="window.open('https://en.wikipedia.org/wiki/Signet_Press','popup','width=600,height=600'); return false;">
+                    D. K. Gupta</a
+                  >, Keymer manager and founder of Signet Press, was a close
+                  colleague; so too was
+                  <a
+                    href="https://en.wikipedia.org/wiki/Satyajit_Ray"
+                    target="popup"
+                    onclick="window.open('https://en.wikipedia.org/wiki/Satyajit_Ray','popup','width=600,height=600'); return false;">
+                    Satyajit Ray</a
+                  >, who joined the agency as a junior visualiser in 1943 and
+                  would go on to become one of the greatest filmmakers of the
+                  twentieth century. William was the only white Englishman in
+                  the staff photograph of the Calcutta team—a measure of how
+                  deeply he had made India his professional home. The agency
+                  later became part of the lineage that led to Ogilvy Benson
+                  &amp; Mather in India.
                 </p>
               </div>
             </div>
@@ -181,15 +209,19 @@
               <div class="biography" data-aos="fade-in">
                 <h2 class="hover-a">Draughtsman and WW2 Engineer</h2>
                 <p class="about-info">
-                  William Henry Blackburn, husband to Dhanlaxmi and father to
-                  Munindra Nigel Blackburn, was an award winning Art director,
-                  painter, and Photographer in both England and India throughout
-                  the 1940's to the 1980's. He continued to hold prominence in
-                  the advertising industry working for Saatchi and Saatchi up
-                  until his death in 1995. His works have largely remained out
-                  of the public eye at his sons home since then, with just a few
-                  of his paintings in the hands of close familly and friends or
-                  in a range of Museums across Great Britain and India.
+                  From 1939 to 1942 William served with the King's Royal Rifle
+                  Corps and Royal Engineers in the United Kingdom. From 1942 to
+                  1945 he was in India, attached to the Royal Engineers and the
+                  Government of India's Information and Broadcasting Department.
+                  His wartime work extended well beyond routine military duty
+                  into exhibition and publicity design, work in New Delhi and
+                  Lahore, and—earlier in the war—conducting a School of Art for
+                  the Services under South East Army Command at Oxford. He was
+                  also a skilled calligrapher and lettering artist, producing
+                  formal inscriptions, layout designs, and bespoke text-based
+                  works with the same precision he brought to technical
+                  draughtsmanship. He built bridges during his Royal Engineers
+                  service, and spoke of that work throughout his life.
                 </p>
               </div>
             </div>
@@ -200,28 +232,29 @@
               <div class="biography" data-aos="fade-in">
                 <h2 class="hover-a">Photographer</h2>
                 <p class="about-info">
-                  Whilst William would often use photography as a tool for
-                  inspiration to later draw and paint, he also managed to
-                  capture some iconic photographs in their own right. A close
-                  friend of his in India by the name of
-                  <a
-                    href="https://en.wikipedia.org/wiki/Sunil_Janah"
-                    target="popup"
-                    onclick="window.open('https://en.wikipedia.org/wiki/Sunil_Janah','popup','width=600,height=600'); return false;">
-                    Sunil Janah</a
-                  >
-                  would go on to gain notiority for being able to capture the
-                  culturism of the Indian Industrial Revolution.
+                  Photography sat alongside drawing and painting throughout
+                  William's career. He often used the camera as a working
+                  tool—gathering reference, studying form, and recording the
+                  life around him—yet many images in the archive stand as
+                  accomplished photographs in their own right, particularly from
+                  his years in India. Documentary portraits, street scenes, and
+                  studies of Indian life sit beside the commercial assignments of
+                  his professional life, reflecting the same eye for composition
+                  that shaped his exhibition design and art direction.
                 </p>
-                <p>
-                  William also used his Photography within advertising campaigns
-                  in the UK and his photograph for
+                <p class="about-info">
+                  He worked on the first
                   <a
                     href="https://en.wikipedia.org/wiki/Pretty_Polly_(hosiery)"
                     target="popup"
                     onclick="window.open('https://en.wikipedia.org/wiki/Pretty_Polly_(hosiery)','popup','width=600,height=600'); return false;">
                     Pretty Polly</a
-                  >won awards.
+                  >
+                  advert—one of several points where his image-making crossed from
+                  personal observation into the history of British advertising.
+                  Much of his photographic work, like his paintings and drawings,
+                  has remained within the family collection since his death in
+                  1995.
                 </p>
               </div>
             </div>
@@ -232,16 +265,27 @@
               <div class="biography-a" data-aos="fade-in">
                 <h2 class="hover-a">Paintings</h2>
                 <p class="about-info">
-                  William Henry Blackburn, husband to Dhanlaxmi and father to
-                  Munindra Nigel Blackburn, was a prominent award winning Art
-                  director, painter, and Photographer in both England and India
-                  throughout the 1940's to the 1980's. He continued to hold
-                  prominence in the advertising industry working for Saatchi and
-                  Saatchi up until his death in 1995. His works have largely
-                  remained out of the public eye at his sons home since then,
-                  with just a few of his paintings in the hands of close familly
-                  and friends or in a range of Museums across Great Britain and
-                  India.
+                  William was not simply a painter in the narrow sense. Alongside
+                  decades of commercial design, he maintained a substantial body
+                  of paintings and drawings across both England and India from
+                  the 1940s onwards. Indian subjects—figures, landscapes, and
+                  scenes from daily life—recur throughout the archive alongside
+                  work made at home. The same sensibility that directed campaigns
+                  for major industrial clients also produced oil paintings,
+                  sketches, and calligraphic pieces. He worked alongside the
+                  artist
+                  <a
+                    href="https://artuk.org/discover/artists/baines-harry-19101995"
+                    target="popup"
+                    onclick="window.open('https://artuk.org/discover/artists/baines-harry-19101995','popup','width=600,height=600'); return false;">
+                    Harry Baines</a
+                  >
+                  during his years in India. Both served with the Royal Engineers
+                  and were seconded to the Government of India's exhibitions and
+                  information work; their careers followed strikingly parallel
+                  paths, and their painting styles were notably similar. Much of
+                  this work has remained outside public view since his death,
+                  preserved within the family collection.
                 </p>
               </div>
             </div>
@@ -253,7 +297,7 @@
                 <h2 class="hover-a">Love of India</h2>
                 <p class="about-info">
                   William served in the British Army as a Royal Engineer under
-                  Field Marshall
+                  Field Marshal
 
                   <a
                     href="https://en.wikipedia.org/wiki/Claude_Auchinleck"
@@ -261,44 +305,31 @@
                     onclick="window.open('https://en.wikipedia.org/wiki/Claude_Auchinleck','popup','width=600,height=600'); return false;">
                     Sir Claude John Eyre Auchinleck</a
                   >
-                  in India during the Burmese Invasion of Japan. He was involved
-                  in the design and construction of the Burmese Bridge, a saga
-                  which would later be adapted into the movie 'The Bridge On The
-                  River Kwai'. He would remain there throughout the subsequent
-                  Bengal Famine of 1943. <br /><br />
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Exercitationem, commodi! Pariatur facilis dolor maiores quia
-                  earum magni fugiat sed totam! Labore iste ullam, mollitia
-                  dolor sit, porro necessitatibus debitis nostrum omnis
-                  blanditiis accusantium, culpa consectetur. Accusamus illum,
-                  debitis adipisci nulla nisi aliquid, consequatur rerum maxime,
-                  placeat modi explicabo eveniet corrupti.
+                  in India during the Burmese campaign against Japan. He was
+                  involved in the design and construction of the Burmese Bridge,
+                  a saga which would later be adapted into the film 'The Bridge
+                  on the River Kwai'. He would remain there throughout the
+                  subsequent Bengal Famine of 1943. <br /><br />
+                  His wartime work extended far beyond routine military duties.
+                  Attached to the Royal Engineers and the Government of India's
+                  Information and Broadcasting Department, he undertook
+                  exhibition and publicity design in New Delhi and Lahore, and
+                  conducted a School of Art for the Services under South East
+                  Army Command at Oxford.
                   <br /><br />
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam
-                  quaerat voluptates quod quasi? Consectetur consequatur,
-                  deserunt hic sint neque perspiciatis nisi recusandae quibusdam
-                  qui corporis, fugiat vel illum provident nesciunt omnis
-                  tempora, accusamus corrupti dolore quisquam. Voluptas eum,
-                  odit atque dolorem qui laborum! Repellat neque deleniti
-                  inventore suscipit reprehenderit aperiam veritatis obcaecati
-                  sed nesciunt vero? Eos laborum dolor, eaque nesciunt itaque
-                  natus soluta facilis dolorem, omnis ea eius quasi vero.
+                  He spoke often of building bridges, and kept a signed
+                  photograph of Claude Auchinleck dated 21 March 1944 from his
+                  years in India. His responsibilities included recruitment and
+                  public exhibitions at a time when visual communication carried
+                  urgent national purpose.
 
                   <br /><br />
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                  Maxime neque consequatur quaerat. Delectus, officiis excepturi
-                  nam nihil temporibus iusto ipsum. Ratione suscipit libero
-                  nulla beatae quos incidunt, necessitatibus magni itaque omnis
-                  explicabo accusamus dolores natus consectetur perferendis ex
-                  dolorem ad nisi corrupti aliquam at enim ipsa. Laboriosam
-                  aspernatur enim corrupti!
+                  India remained central to his life long after the war ended.
+                  Those years shaped his development as an artist, draughtsman,
+                  and designer, and his work from that period includes paintings,
+                  drawings, exhibition models, and Indian subjects drawn from
+                  daily life and professional practice alike.
                 </p>
-
-                <div class="bio-links">
-                  <a href="#fresh-chilled" class="cta-link">Buy Prints</a>
-                  <a href="#fresh-chilled" class="cta-link">Buy Prints</a>
-                  <a href="#fresh-chilled" class="cta-link">Buy Prints</a>
-                </div>
               </div>
             </div>
 
@@ -309,15 +340,24 @@
               <div class="biography-c" data-aos="fade-in">
                 <h2 class="hover-a">Burmese Bridge</h2>
                 <p class="about-info">
-                  William Henry Blackburn, husband to Dhanlaxmi and father to
-                  Munindra Nigel Blackburn, was a prominent award winning Art
-                  director, painter, and Photographer in both England and India
-                  throughout the 1940's to the 1980's. He continued to hold
-                  prominence in the advertising industry working for Saatchi and
-                  Saatchi up until his death in 1995. His works have largely
-                  remained out of the public eye at his sons home since then,
-                  with just a few of his paintings in the hands of close familly
-                  and friends.
+                  William served as a Royal Engineer in India under Field Marshal
+                  <a
+                    href="https://en.wikipedia.org/wiki/Claude_Auchinleck"
+                    target="popup"
+                    onclick="window.open('https://en.wikipedia.org/wiki/Claude_Auchinleck','popup','width=600,height=600'); return false;">
+                    Claude Auchinleck</a
+                  >
+                  during the Burmese campaign against Japan, and was involved in
+                  the design and construction work associated with the Burmese
+                  bridge—a story later dramatised in the film
+                  <em>The Bridge on the River Kwai</em>. He remained in India
+                  through the Bengal Famine of 1943. For William, engineering was
+                  never separate from visual work: the precision demanded of
+                  military construction would later reappear in his exhibition
+                  models, pavilion maquettes, and the meticulous draughtsmanship
+                  that runs through the archive. The Royal Engineers period sits
+                  at the root of a career that united structure, design, and
+                  image.
                 </p>
               </div>
             </div>
