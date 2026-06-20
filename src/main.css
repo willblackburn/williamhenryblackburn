@@ -96,6 +96,15 @@ html {
   --content-gutter-collapsed: clamp(0.875rem, 1.25vw, 1.125rem);
   --bio-edge-margin-collapsed: clamp(0.875rem, 1vw, 1rem);
 
+  --image-filter: contrast(1.06) saturate(0.84) brightness(0.97);
+  --image-blend-mode: multiply;
+  --image-blend-overlay: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--brandcolor3) 28%, transparent) 0%,
+    color-mix(in srgb, var(--brandcolor2) 18%, transparent) 42%,
+    color-mix(in srgb, #211f1f 22%, transparent) 100%
+  );
+
   --brandlogo-light: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/logo-dark.webp');
   --brandlogo-dark: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/logo-light.webp');
 
@@ -122,6 +131,13 @@ html {
     --text: var(--text-dark);
     --bg: var(--bg-dark);
     --inverted: var(--inverted-dark);
+    --image-filter: contrast(1.08) saturate(0.78) brightness(0.9);
+    --image-blend-overlay: linear-gradient(
+      165deg,
+      color-mix(in srgb, #000 35%, transparent) 0%,
+      color-mix(in srgb, var(--brandcolor2) 22%, transparent) 45%,
+      color-mix(in srgb, #000 48%, transparent) 100%
+    );
   }
 }
 
@@ -134,6 +150,13 @@ html {
   --brandlogo: var(--brandlogo-dark);
   --navcta: var(--nav-cta-brand-dark);
   --presskitimage: var(--presskitimage-dark);
+  --image-filter: contrast(1.08) saturate(0.78) brightness(0.9);
+  --image-blend-overlay: linear-gradient(
+    165deg,
+    color-mix(in srgb, #000 35%, transparent) 0%,
+    color-mix(in srgb, var(--brandcolor2) 22%, transparent) 45%,
+    color-mix(in srgb, #000 48%, transparent) 100%
+  );
 }
 
 [data-theme='light'] {
@@ -145,6 +168,13 @@ html {
   --brandlogo: var(--brandlogo-light);
   --navcta: var(--nav-cta-brand-light);
   --presskitimage: var(--presskitimage-light);
+  --image-filter: contrast(1.06) saturate(0.84) brightness(0.97);
+  --image-blend-overlay: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--brandcolor3) 28%, transparent) 0%,
+    color-mix(in srgb, var(--brandcolor2) 18%, transparent) 42%,
+    color-mix(in srgb, #211f1f 22%, transparent) 100%
+  );
 }
 
 /*-------------------------------------------------------------------------------
@@ -1082,13 +1112,54 @@ label {
 }
 
 /*-------------------------------------------------------------------------------
+    IMAGE BLEND
+-------------------------------------------------------------------------------*/
+
+.project-full-width,
+.project-about:not(.img6),
+.img-contact {
+  background-image: var(--image-blend-overlay), var(--about-bg-image);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.project-full-width > *,
+.project-about > * {
+  position: relative;
+  z-index: 1;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  background-color: color-mix(in srgb, var(--brandcolor3) 35%, var(--bg));
+}
+
+.image-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--image-blend-overlay);
+  mix-blend-mode: var(--image-blend-mode);
+  opacity: 0.88;
+  pointer-events: none;
+}
+
+.site-image,
+.photo,
+.keymer-staff-photo,
+.portfolio-image,
+.portfolio-image2 {
+  filter: var(--image-filter);
+}
+
+/*-------------------------------------------------------------------------------
     Home
 -------------------------------------------------------------------------------*/
 
 .project-full-width {
   /* background-image: url("https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-modernism-1-colour.webp"); */
-  background-image: url(/img/whb-main-screen-2.webp);
-  background-size: cover;
+  --about-bg-image: url(/img/whb-main-screen-2.webp);
   background-position: 42% 50%;
   max-width: 100vw;
   min-height: calc(100vh - (2 * var(--section-inset)));
@@ -1155,49 +1226,31 @@ label {
 
 .img0 {
   --about-bg-image: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-5.webp');
-  background-image: var(--about-bg-image);
-  background-size: cover;
-  background-repeat: no-repeat;
   background-position: 80% 100%;
 }
 
 .img1 {
   --about-bg-image: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-6.webp');
-  background-image: var(--about-bg-image);
-  background-size: cover;
-  background-repeat: no-repeat;
   background-position: 80% 100%;
 }
 
 .img2 {
   --about-bg-image: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-3.webp');
-  background-image: var(--about-bg-image);
-  background-size: cover;
-  background-repeat: no-repeat;
   background-position: 80% 100%;
 }
 
 .img3 {
   --about-bg-image: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/whb-bio-2.webp');
-  background-image: var(--about-bg-image);
-  background-size: cover;
-  background-repeat: no-repeat;
   background-position: 50% 100%;
 }
 
 .img4 {
   --about-bg-image: url(/img/whb-bio-7.webp);
-  background-image: var(--about-bg-image);
-  background-size: cover;
-  background-repeat: no-repeat;
   background-position: 80% 100%;
 }
 
 .img5 {
   --about-bg-image: url(/img/whb-photography.webp);
-  background-image: var(--about-bg-image);
-  background-size: cover;
-  background-repeat: no-repeat;
   background-position: 80% 100%;
 }
 
@@ -1407,7 +1460,7 @@ label {
     width: 100%;
     aspect-ratio: 4 / 3;
     max-height: 45vh;
-    background-image: var(--about-bg-image);
+    background-image: var(--image-blend-overlay), var(--about-bg-image);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -1501,6 +1554,8 @@ label {
 }
 
 .photo {
+  display: block;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
   transition: all 1.8s ease-in-out;
@@ -1539,6 +1594,7 @@ label {
   object-fit: contain;
   box-shadow: 1px 1px 10px rgba(42, 42, 42, 0.85);
   transition: all 0.4s ease-in;
+  filter: var(--image-filter);
 }
 
 body.gallery-lightbox-open {
@@ -1666,9 +1722,7 @@ body.gallery-lightbox-open {
 }
 
 .img-contact {
-  background-image: url(/img/whb-contact.webp);
-  background-size: cover;
-  background-repeat: no-repeat;
+  --about-bg-image: url(/img/whb-contact.webp);
   background-position: 50% 100%;
   display: flex;
   align-items: center;
