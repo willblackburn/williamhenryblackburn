@@ -20,9 +20,7 @@
   },
   "homepage": "https://github.com/willblackburn/williamhenryblackburn#readme",
   "dependencies": {
-    "lenis": "^1.3.23"
-  },
-  "devDependencies": {
+    "lenis": "^1.3.23",
     "vite": "^6.3.5"
   }
 }
