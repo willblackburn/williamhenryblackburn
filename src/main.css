@@ -1137,10 +1137,13 @@ label {
 
 .site-image,
 .photo,
-.keymer-staff-photo,
 .portfolio-image,
 .portfolio-image2 {
   filter: var(--image-filter);
+}
+
+.keymer-staff-photo {
+  filter: none;
 }
 
 /*-------------------------------------------------------------------------------
@@ -1285,46 +1288,37 @@ label {
 }
 
 .img6 {
-  position: relative;
   background-color: var(--bg);
-  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: minmax(calc(100vh - (2 * var(--section-inset))), auto);
+  align-items: stretch;
+  gap: 0;
 }
 
-.keymer-staff-photo {
-  position: absolute;
-  top: clamp(1rem, 3vh, 2.5rem);
-  left: clamp(1rem, 2vw, 2.5rem);
-  right: auto;
-  width: min(40%, 46rem);
-  height: auto;
-  max-height: calc(100% - 14rem);
-  object-fit: contain;
-  z-index: 2;
-  box-shadow: 14px 28px 60px rgba(33, 31, 31, 0.45);
-  transform: translateX(2.5rem);
-}
-
-@media screen and (min-width: 1200px) {
-  .keymer-staff-photo {
-    width: min(42%, 50rem);
-    transform: translateX(3.5rem);
-  }
-}
-
-@media screen and (min-width: 1600px) {
-  .keymer-staff-photo {
-    width: min(44%, 54rem);
-    transform: translateX(4rem);
-  }
+.img6 .keymer-staff-photo {
+  grid-column: 1;
+  grid-row: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  object-position: center;
+  filter: none;
+  box-shadow: none;
+  outline: none;
 }
 
 .img6 .biography-a {
-  position: relative;
-  z-index: 1;
-  grid-column: 1 / -1;
-  width: min(54%, 58rem);
-  max-width: 58rem;
-  margin-left: auto;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  width: auto;
+  max-width: none;
+  margin-top: var(--bio-box-margin);
   margin-right: var(--bio-box-margin);
 }
 
@@ -1395,6 +1389,73 @@ label {
 
 .about-info a:hover {
   color: var(--text-light);
+}
+
+.keymer-period {
+  margin-top: 2rem;
+}
+
+.keymer-period + .keymer-period {
+  margin-top: 2.5rem;
+}
+
+.img6 .biography-a > .about-info + .keymer-period {
+  margin-top: 2.25rem;
+}
+
+.img6 .keymer-period + .about-info {
+  margin-top: 2.5rem;
+  padding-top: 0.25rem;
+}
+
+.about-period-heading {
+  font-family: var(--font-body);
+  font-size: var(--font-clamp-ui);
+  font-weight: 600;
+  letter-spacing: var(--letter-spacing-ui);
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin: 0 0 0.35rem;
+  line-height: var(--line-height-ui);
+}
+
+.about-role,
+.about-accounts-label {
+  padding-block: 0.25rem;
+}
+
+.about-accounts-label {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.about-account-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.15rem 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  gap: 0.4rem 1.5rem;
+}
+
+.about-account-list li {
+  font-size: var(--font-clamp-body-lg);
+  font-weight: 600;
+  color: var(--brandcolor2);
+  padding-left: 0.9rem;
+  position: relative;
+  line-height: var(--line-height-ui);
+}
+
+.about-account-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.3rem;
+  height: 0.3rem;
+  background: currentColor;
+  border-radius: 50%;
 }
 
 .project-wrapper {
@@ -1488,22 +1549,28 @@ label {
     display: none;
   }
 
-  .keymer-staff-photo {
-    position: static;
+  .img6 {
     display: block;
+    min-height: auto;
+  }
+
+  .keymer-staff-photo {
     width: 100%;
-    max-width: none;
+    max-height: 45vh;
     height: auto;
-    transform: none;
-    border: none;
+    min-height: 0;
+    object-fit: cover;
+    margin: 0;
     box-shadow: none;
+    outline: none;
   }
 
   .img6 .biography-a {
     grid-column: unset;
-    margin-left: 0;
-    margin-right: 0;
+    grid-row: unset;
+    margin: 0;
     max-width: 100%;
+    width: 100%;
   }
 
   .img5 .biography {
