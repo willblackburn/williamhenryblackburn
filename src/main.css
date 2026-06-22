@@ -669,14 +669,25 @@ a.nav-link:hover,
   }
 
   .coda-body.sidebar-collapsed .nav-label {
-    opacity: 0;
-    max-width: 0;
-    visibility: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+    opacity: 1;
+    visibility: visible;
+    max-width: none;
   }
 
   .coda-body.sidebar-collapsed .menu > li > label.nav-link,
   .coda-body.sidebar-collapsed a.nav-link,
   .coda-body.sidebar-collapsed button.nav-link {
+    position: relative;
     justify-content: center;
     padding-left: 0;
     padding-right: 0;
@@ -781,12 +792,6 @@ a.nav-link:hover,
     padding-right: 0;
     justify-content: center;
     gap: 0;
-  }
-
-  .coda-body.sidebar-collapsed .collapsed-menu .nav-label {
-    opacity: 0;
-    max-width: 0;
-    visibility: hidden;
   }
 }
 
