@@ -51,7 +51,7 @@ Site Design by Coda4 Design */
   --medium-padding: 2em;
   --large-padding: 3em;
   --bio-box-max-width: 67rem;
-  --bio-box-opacity: 90%;
+  --bio-box-opacity: 100%;
   --bio-box-bg: color-mix(
     in srgb,
     var(--brandcolor1) var(--bio-box-opacity),
@@ -62,8 +62,8 @@ Site Design by Coda4 Design */
     var(--bg) var(--bio-box-opacity),
     transparent
   );
-  --bio-box-margin: 3rem;
-  --bio-box-padding: clamp(1.25rem, 2vw, 2rem);
+  --bio-box-margin: clamp(0.875rem, 0.5rem + 2.25vw, 3rem);
+  --bio-box-padding: clamp(0.875rem, 0.75rem + 1vw, 2rem);
 
   --font-display: 'Cormorant Garamond', 'Times New Roman', serif;
   --font-logo: 'Cormorant Garamond', 'Times New Roman', serif;
@@ -79,7 +79,7 @@ Site Design by Coda4 Design */
   /* Type scale */
   --font-clamp-body: clamp(1rem, 0.35vw + 0.95rem, 1.425rem);
   --font-clamp-body-lg: clamp(1.0625rem, 0.5vw + 1rem, 1.25rem);
-  --font-clamp-h1: clamp(2.25rem, 2vw + 1.5rem, 3.75rem);
+  --font-clamp-h1: clamp(1.75rem, 2vw + 1.5rem, 3.75rem);
   --font-clamp-h2: clamp(1.75rem, 1.2vw + 1.25rem, 3.75rem);
   --font-clamp-h3: clamp(1.375rem, 0.8vw + 1.1rem, 3.125rem);
   --font-clamp-h4: clamp(0.8125rem, 0.2vw + 0.75rem, 0.9375rem);
@@ -100,7 +100,7 @@ Site Design by Coda4 Design */
   --text-shadow: 1px 1px 1px var(--brandcolor3);
 
   --padding-clamp: clamp(0.5vw, 1.5vw, 2vw);
-  --section-inset: clamp(1.25rem, 2.25vw, 2.5rem);
+  --section-inset: clamp(0.875rem, 0.5rem + 1.75vw, 2.5rem);
   --content-gutter-collapsed: clamp(0.875rem, 1.25vw, 1.125rem);
 
   --image-filter: contrast(1.06) saturate(0.84) brightness(0.97);
@@ -469,11 +469,11 @@ p {
   .coda-body > .right {
     width: 100%;
     padding-top: var(--mobile-nav-height);
-    transition: padding-top 0.3s ease-out;
   }
 
-  .coda-body.mobile-nav-hidden > .right {
-    padding-top: 0;
+  .project-full-width {
+    min-height: calc(82vh - (2 * var(--section-inset)));
+    background-position: 42% 48%;
   }
 
   .left .logo-image {
@@ -789,7 +789,19 @@ a.nav-link:hover,
   }
 }
 
+@media (max-width: 480px) {
+  :root {
+    --bio-box-padding: clamp(0.5625rem, 1.5vw, 0.8125rem);
+    --section-inset: clamp(0.375rem, 1.25vw, 0.625rem);
+  }
+}
+
 @media (max-width: 840px) {
+  :root {
+    --bio-box-padding: clamp(0.625rem, 1.75vw, 0.9375rem);
+    --section-inset: clamp(0.4375rem, 1.5vw, 0.75rem);
+  }
+
   .sidebar-toggle {
     display: none;
   }
@@ -822,12 +834,6 @@ label {
     background-color: var(--bg);
     border-bottom: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
     z-index: 1001;
-    transition: transform 0.3s ease-out;
-  }
-
-  .mobile-top-bar.mobile-top-bar--hidden {
-    transform: translateY(-100%);
-    pointer-events: none;
   }
 
   .mobile-top-bar .logo-image,
@@ -1167,6 +1173,9 @@ label {
   padding: var(--bio-box-padding);
   margin-left: var(--bio-box-margin);
   margin-bottom: var(--bio-box-margin);
+  transition:
+    margin 0.2s ease,
+    padding 0.2s ease;
 }
 
 .home-header {
@@ -1216,12 +1225,19 @@ label {
 }
 
 @media screen and (max-width: 990px) {
+  :root {
+    --bio-box-margin: clamp(0.5rem, 1.75vw, 0.75rem);
+    --bio-box-padding: clamp(0.6875rem, 2vw, 1rem);
+    --section-inset: clamp(0.5625rem, 1.75vw, 0.875rem);
+  }
+
   .project-full-width {
     grid-column-gap: 0.1rem;
   }
 
   .home-header {
     margin-left: 0;
+    padding-block: clamp(0.875rem, 2.5vw, 1.25rem);
   }
 }
 
@@ -1444,20 +1460,7 @@ label {
   font-size: var(--font-clamp-body-lg);
   font-weight: 600;
   color: var(--brandcolor2);
-  padding-left: 0.9rem;
-  position: relative;
   line-height: var(--line-height-ui);
-}
-
-.about-account-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.55em;
-  width: 0.3rem;
-  height: 0.3rem;
-  background: currentColor;
-  border-radius: 50%;
 }
 
 .project-wrapper {
@@ -1613,13 +1616,6 @@ label {
 
 .filter-grid-gallery {
   background-color: var(--bg);
-  height: calc(100vh - (2 * var(--section-inset)));
-  min-height: calc(100vh - (2 * var(--section-inset)));
-  overflow: auto;
-}
-
-.filter-grid-gallery.lenis {
-  overflow: hidden;
 }
 
 .gallery {
@@ -1676,7 +1672,7 @@ body.gallery-lightbox-open {
 
 @media (max-width: 620px) {
   .filter-grid-gallery {
-    padding: 4rem 0.9rem 0.9rem 0.9rem;
+    padding: 0 0.9rem 0.9rem;
   }
 }
 

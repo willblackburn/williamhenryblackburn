@@ -4,6 +4,53 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/js/theme-init.js"></script>
+    <style>
+      @media (max-width: 840px) {
+        .coda-body > .left {
+          position: fixed;
+          top: 5rem;
+          right: 0;
+          left: auto;
+          bottom: 0;
+          width: min(300px, 85vw);
+          transform: translateX(100%);
+          z-index: 1000;
+        }
+
+        .coda-body > .right {
+          width: 100%;
+          padding-top: 5rem;
+        }
+
+        .mobile-top-bar {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 5rem;
+          padding: 0.75rem 1.2rem;
+          z-index: 1001;
+          background: #f7f3ed;
+        }
+
+        [data-theme='dark'] .mobile-top-bar {
+          background: #222221;
+        }
+
+        .left .logo-image {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: flex;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="./main.css" />
     <meta
       name="description"
       content="Biography of William Henry Blackburn—Royal Engineers serviceman, exhibition designer in India, Art Director at D.J. Keymer in Bombay and Calcutta, calligrapher, painter, and mid-century commercial artist." />
@@ -248,16 +295,17 @@
               <div class="biography-a" data-aos="fade-in">
                 <h2 class="hover-a">D.J. Keymer, Bombay &amp; Calcutta</h2>
                 <p class="about-info">
-                  D.J. Keymer &amp; Co. Ltd. placed William at the centre of one
-                  of India&apos;s most important mid-century advertising and
-                  design environments. He worked first as Art Director in
-                  Bombay before transferring to the Calcutta head office,
+                  By the time William joined D.J. Keymer &amp; Co. Ltd., he was
+                  already an established artist and designer. He served as Art
+                  Director in Bombay before transferring to the Calcutta head
+                  office, working within one of India&apos;s most important
+                  mid-century advertising and design environments and
                   contributing to a commercial art world that shaped modern
                   visual communication across the subcontinent.
                 </p>
                 <p class="about-info">
-                  The Calcutta circle was historically significant. Keymer
-                  connected figures such as
+                  The Calcutta circle was historically significant. William
+                  worked there with figures of comparable standing, including
                   <a
                     href="https://en.wikipedia.org/wiki/Annada_Munsi"
                     target="popup"
@@ -297,11 +345,12 @@
                       return false;
                     ">
                     Satyajit Ray</a
-                  >, whose work would influence Indian advertising, publishing,
-                  typography and film culture. William&apos;s presence in this
-                  world matters because much of his own surviving work has
-                  never been publicly seen, yet it belongs to the same wider
-                  design ecosystem.
+                  >—names that would come to define Indian advertising,
+                  publishing, typography and film culture. Much of his Keymer
+                  work, like the wider body of his own art and design, has
+                  remained in the family archive for more than thirty years and
+                  has never been publicly shown, even though it belongs to the
+                  same wider design world.
                 </p>
                 <p class="about-info">
                   The agency later became part of the lineage that led to Ogilvy
