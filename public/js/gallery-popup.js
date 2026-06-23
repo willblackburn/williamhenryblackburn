@@ -33,9 +33,16 @@
     document.body.classList.remove('gallery-lightbox-open')
   }
 
-  $('.gallery div').on('click', function () {
-    const img = $(this).find('img')[0]
-    if (!img) return
-    openLightbox(img.src, img.alt)
-  })
+  function bindLightboxTriggers(selector) {
+    document.querySelectorAll(selector).forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const img = trigger.querySelector('img')
+        if (!img) return
+        openLightbox(img.currentSrc || img.src, img.alt)
+      })
+    })
+  }
+
+  bindLightboxTriggers('.gallery div')
+  bindLightboxTriggers('.about-archive .image-wrapper')
 })()

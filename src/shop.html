@@ -4,21 +4,68 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/js/theme-init.js"></script>
+    <style>
+      @media (max-width: 840px) {
+        .coda-body > .left {
+          position: fixed;
+          top: 5rem;
+          right: 0;
+          left: auto;
+          bottom: 0;
+          width: min(300px, 85vw);
+          transform: translateX(100%);
+          z-index: 1000;
+        }
+
+        .coda-body > .right {
+          width: 100%;
+          padding-top: 5rem;
+        }
+
+        .mobile-top-bar {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 5rem;
+          padding: 0.75rem 1.2rem;
+          z-index: 1001;
+          background: #f7f3ed;
+        }
+
+        [data-theme='dark'] .mobile-top-bar {
+          background: #222221;
+        }
+
+        .left .logo-image {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: flex;
+        }
+      }
+    </style>
+    <link rel="stylesheet" href="./main.css" />
     <meta
       name="description"
-      content="Prints and artworks by William Henry Blackburn—British artist, painter, draughtsman, and Art Director. Purchase reproductions from the official family archive." />
+      content="Prints and reproductions from the William Henry Blackburn archive—coming soon. Enquire about artworks from the official family archive." />
     <meta
       name="keywords"
       content="William Henry Blackburn prints, buy art prints, British artist prints, archive reproductions, Indian art prints, painting prints" />
     <meta name="author" content="William Henry Blackburn Archive" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="noindex, follow" />
     <link rel="canonical" href="https://williamhenryblackburn.com/shop.html" />
     <meta
       property="og:title"
-      content="Shop Prints | William Henry Blackburn Art Archive" />
+      content="Shop | William Henry Blackburn Art Archive" />
     <meta
       property="og:description"
-      content="Shop prints and reproductions from the William Henry Blackburn archive—British artist, draughtsman, and Art Director." />
+      content="Prints and reproductions from the William Henry Blackburn archive—coming soon." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://williamhenryblackburn.com/shop.html" />
     <meta property="og:site_name" content="William Henry Blackburn" />
@@ -26,9 +73,218 @@
       property="og:image"
       content="https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/bg1.webp" />
     <meta name="twitter:card" content="summary_large_image" />
-    <title>Shop Prints | William Henry Blackburn Art Archive</title>
+    <title>Shop | William Henry Blackburn Art Archive</title>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   </head>
+
   <body>
-    <p>will shop</p>
+    <div class="coda-body">
+      <script src="/js/sidebar-collapse-init.js"></script>
+
+      <div class="left">
+        <ul class="menu">
+          <li class="menu-logo">
+            <a
+              href="index.html"
+              class="logo-image"
+              aria-label="William Henry Blackburn home"
+              ><span class="logo-monogram" aria-hidden="true">WHB</span></a
+            >
+          </li>
+
+          <li>
+            <a href="about.html" class="nav-link">
+              <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0 2c-3.31 0-6 1.79-6 4v1h12v-1c0-2.21-2.69-4-6-4Z" />
+              </svg>
+              <span class="nav-label">about</span>
+            </a>
+          </li>
+          <li>
+            <a href="timeline.html" class="nav-link">
+              <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z" />
+              </svg>
+              <span class="nav-label">Timeline</span>
+            </a>
+          </li>
+          <li class="nav-item-has-submenu">
+            <input type="checkbox" id="menu-showcase" />
+            <label for="menu-showcase" class="nav-link">
+              <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M3 3h8v8H3V3Zm10 0h8v8h-8V3ZM3 13h8v8H3v-8Zm10 0h8v8h-8v-8Z" />
+              </svg>
+              <span class="nav-label">Works</span>
+            </label>
+            <ul class="collapsed-menu">
+              <li>
+                <a href="photography.html" class="nav-link nav-link--sub">
+                  <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      fill="currentColor"
+                      d="M9.5 4 8 6H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-4l-1.5-2H9Zm2.5 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z" />
+                  </svg>
+                  <span class="nav-label">Photography</span>
+                </a>
+              </li>
+              <li>
+                <a href="paintings.html" class="nav-link nav-link--sub">
+                  <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      fill="currentColor"
+                      d="M12 2a10 10 0 1 0 0 20c1.38 0 1.25-2 0-2h-1a2 2 0 0 1-2-2 2 2 0 0 1 2-2h1.5c.83 0 1.5-.67 1.5-1.5 0-3.86-3.14-7-7-7Z" />
+                  </svg>
+                  <span class="nav-label">Paintings</span>
+                </a>
+              </li>
+              <li>
+                <a href="sketches.html" class="nav-link nav-link--sub">
+                  <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      fill="currentColor"
+                      d="m14.06 4.94-8.12 8.12a3 3 0 0 0-.88 2.12V16h.82a3 3 0 0 0 2.12-.88l8.12-8.12-2.06-2.06ZM19 9.31l-1.41 1.41-2.13-2.12 1.41-1.41L19 9.31Z" />
+                  </svg>
+                  <span class="nav-label">Sketches</span>
+                </a>
+              </li>
+              <li>
+                <a href="architecture.html" class="nav-link nav-link--sub">
+                  <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      fill="currentColor"
+                      d="M12 3 2 10v11h20V10L12 3Zm0 2.18 6 4.5V19h-3v-6H9v6H6v-9.32l6-4.5Z" />
+                  </svg>
+                  <span class="nav-label">Architectural</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href="shop.html"
+              class="nav-link"
+              aria-current="page">
+              <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M7 7V6a5 5 0 0 1 10 0v1h2a1 1 0 0 1 1 1v11a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V8a1 1 0 0 1 1-1h2Zm2 0h6V6a3 3 0 0 0-6 0v1Z" />
+              </svg>
+              <span class="nav-label">Shop</span>
+            </a>
+          </li>
+          <li>
+            <a href="contact.html" class="nav-link">
+              <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  fill="currentColor"
+                  d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z" />
+              </svg>
+              <span class="nav-label">Contact</span>
+            </a>
+          </li>
+          <li class="menu-footer">
+            <div class="coda-audio-light-container">
+              <button
+                type="button"
+                class="sidebar-toggle toggle"
+                aria-expanded="true"
+                aria-label="Collapse navigation">
+                <svg
+                  class="sidebar-toggle-icon"
+                  viewBox="0 0 24 24"
+                  width="16"
+                  height="16"
+                  aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41Z" />
+                </svg>
+              </button>
+              <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="switch round"></div>
+              </label>
+
+              <audio
+                id="audio-player"
+                name="audio-player"
+                src="https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/audio/one's-life.mp3"></audio>
+              <div class="musicplayer">
+                <button
+                  type="button"
+                  class="toggle audio-toggle"
+                  aria-label="Toggle background audio">
+                  <svg
+                    class="audio-icon audio-icon--playing"
+                    viewBox="0 0 24 24"
+                    width="22"
+                    height="22"
+                    aria-hidden="true">
+                    <path
+                      d="M3 10v4h4l5 5V5L7 10H3zm7.5 2.5c0-1.65-1.02-3.07-2.5-3.71v7.42c1.48-.64 2.5-2.06 2.5-3.71zm2.5 0c0 2.48-1.36 4.64-3.38 5.78l1.46 1.46A7.935 7.935 0 0 0 18 12.5C18 8.97 15.51 6.03 12 5.05v2.09c2.06.73 3.5 2.62 3.5 4.86z" />
+                  </svg>
+                  <svg
+                    class="audio-icon audio-icon--muted"
+                    viewBox="0 0 24 24"
+                    width="22"
+                    height="22"
+                    aria-hidden="true">
+                    <path
+                      d="M3.63 3.63a.996.996 0 0 0 0 1.41L7.29 8.7 7 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a8.002 8.002 0 0 0 3.69-1.81l2.04 2.04 1.41-1.41L5.05 3.63c-.39-.39-1.02-.39-1.42 0zM12 4l-2.05 2.05L12 8.1V4zm6.36 10.36-1.55-1.55A3.978 3.978 0 0 0 16 12.5v-2.16l-1.51-1.51C15.51 9.64 16 10.99 16 12.5c0 1.12-.39 2.15-1.04 2.96l1.46 1.46A7.935 7.935 0 0 0 18 12.5c0-1.21-.27-2.36-.76-3.39l-1.88-1.88v2.06c0 .55-.11 1.08-.3 1.57z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="right">
+        <header class="mobile-top-bar">
+          <a href="index.html" class="logo-image mobile-top-bar__logo" aria-label="William Henry Blackburn home"
+            ><span class="logo-monogram" aria-hidden="true">WHB</span></a
+          >
+          <div class="menu-toggle">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </header>
+
+        <div class="coda-container">
+          <div class="portfolio-item-container" id="home">
+            <div class="section project-about img-contact" id="shop">
+              <div class="biography-b" data-aos="fade-in">
+                <h2>Shop</h2>
+                <p class="about-info">
+                  Prints and reproductions from the William Henry Blackburn
+                  archive will be available here soon.
+                </p>
+                <p class="about-info">
+                  For enquiries about artworks, licensing, or reproductions in
+                  the meantime, please
+                  <a href="contact.html">get in touch</a>.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="js/lenis.js"></script>
+    <script defer src="/js/aos.js"></script>
+    <script defer src="/js/audio-controls.js"></script>
+    <script src="/js/dark-light-toggle.js"></script>
+    <script src="/js/responsive-nav.js"></script>
+    <script src="/js/sidebar-collapse.js"></script>
   </body>
 </html>

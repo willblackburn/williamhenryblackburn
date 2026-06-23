@@ -24,6 +24,7 @@ export default defineConfig({
         sketches: resolve(__dirname, 'src/sketches.html'),
         architecture: resolve(__dirname, 'src/architecture.html'),
         contact: resolve(__dirname, 'src/contact.html'),
+.timeline: resolve(__dirname, 'src/timeline.html'),
         shop: resolve(__dirname, 'src/shop.html'),
         reference: resolve(__dirname, 'src/reference.html'),
       },

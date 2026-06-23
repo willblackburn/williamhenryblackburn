@@ -3,6 +3,18 @@ let mq
 
 const codaBody = document.querySelector('.coda-body')
 const menuToggle = document.querySelector('.menu-toggle')
+const worksSubmenu = document.getElementById('menu-showcase')
+const worksPages = new Set([
+  'photography.html',
+  'paintings.html',
+  'sketches.html',
+  'architecture.html',
+])
+const currentPage = window.location.pathname.split('/').pop() || 'index.html'
+
+if (worksSubmenu && worksPages.has(currentPage)) {
+  worksSubmenu.checked = true
+}
 
 document.querySelectorAll('.collapsed-menu > li').forEach((el) => {
   el.addEventListener('click', (event) => {
