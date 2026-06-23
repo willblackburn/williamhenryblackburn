@@ -1115,7 +1115,8 @@ label {
 
 .project-full-width,
 .project-about,
-.img-contact {
+.img-contact,
+.img-shop {
   background-image: var(--image-blend-overlay), var(--about-bg-image);
   background-size: cover;
   background-repeat: no-repeat;
@@ -1661,7 +1662,8 @@ label {
     max-width: 100%;
   }
 
-  .img-contact .biography-b {
+  .img-contact .biography-b,
+  .img-shop .biography-b {
     width: 100%;
     max-width: 100%;
     margin: 0;
@@ -1880,7 +1882,17 @@ body.gallery-lightbox-open {
   min-height: calc(100vh - (2 * var(--section-inset)));
 }
 
-.img-contact .biography-b {
+.img-shop {
+  --about-bg-image: url(/img/whb-caves-1.webp);
+  background-position: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - (2 * var(--section-inset)));
+}
+
+.img-contact .biography-b,
+.img-shop .biography-b {
   grid-column: unset;
   grid-row: unset;
   margin: var(--bio-box-margin);
