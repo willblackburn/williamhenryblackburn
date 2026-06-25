@@ -33,9 +33,18 @@
     document.body.classList.remove('gallery-lightbox-open')
   }
 
+  function shouldSkipLightbox(trigger) {
+    return (
+      trigger.closest('.gallery-wheel') &&
+      window.matchMedia('(min-width: 1000px)').matches
+    )
+  }
+
   function bindLightboxTriggers(selector) {
     document.querySelectorAll(selector).forEach((trigger) => {
       trigger.addEventListener('click', () => {
+        if (shouldSkipLightbox(trigger)) return
+
         const img = trigger.querySelector('img')
         if (!img) return
         openLightbox(img.currentSrc || img.src, img.alt)
