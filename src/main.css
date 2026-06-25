@@ -195,6 +195,15 @@ Site Design by Coda4 Design */
   padding: 0;
 }
 
+.youtube-audio-player {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
 .theme-switch {
   height: 25px;
   position: relative;
