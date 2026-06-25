@@ -342,9 +342,20 @@ if (
     if (introEl) observer.observe(introEl)
   }
 
-  if (document.fonts?.ready) {
-    document.fonts.ready.then(onBreakpointChange)
-  } else {
-    onBreakpointChange()
+  function refreshAos() {
+    window.AOS?.refresh()
   }
+
+  function boot() {
+    onBreakpointChange()
+    refreshAos()
+  }
+
+  if (document.fonts?.ready) {
+    document.fonts.ready.then(boot)
+  } else {
+    boot()
+  }
+
+  window.addEventListener('load', refreshAos, { once: true })
 }

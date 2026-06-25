@@ -31,7 +31,7 @@ Site Design by Coda4 Design */
   --bg-light: #f7f3ed;
 
   --text-dark: #fffff0;
-  --bg-dark: #222221;
+  --bg-dark: #181715;
 
   --inverted-light: #211f1f;
   --inverted-dark: #f2f3f4;
@@ -1235,13 +1235,23 @@ label {
 .biography-a,
 .biography-b,
 .biography-c {
-  background-color: var(--bio-box-bg);
   padding: var(--bio-box-padding);
   margin-left: var(--bio-box-margin);
   margin-bottom: var(--bio-box-margin);
   transition:
     margin 0.2s ease,
     padding 0.2s ease;
+}
+
+.home-header {
+  background-color: transparent;
+}
+
+.biography,
+.biography-a,
+.biography-b,
+.biography-c {
+  background-color: var(--bg);
 }
 
 .home-header {
@@ -1265,11 +1275,13 @@ label {
 .home-header .dob p {
   margin: 0;
   padding: 0;
+  color: var(--text);
 }
 
 .home-header .home-span {
   padding-top: 0;
   margin: 0;
+  color: var(--text);
 }
 
 .home-span {
@@ -1277,7 +1289,7 @@ label {
   display: flex;
   font-size: var(--font-clamp-body-lg);
   line-height: var(--line-height-body);
-  color: var(--text-light);
+  color: var(--text);
   padding-top: 1rem;
 }
 
@@ -1459,6 +1471,7 @@ label {
   max-width: 100%;
   line-height: var(--line-height-body);
   padding-block: 0.8rem;
+  color: var(--text);
 }
 
 .about-info a {
@@ -1537,7 +1550,7 @@ label {
   font-weight: 600;
   letter-spacing: var(--letter-spacing-ui);
   text-transform: uppercase;
-  color: var(--text-light);
+  color: var(--text);
   margin: 0 0 0.35rem;
   line-height: var(--line-height-ui);
 }
@@ -2002,8 +2015,13 @@ body.gallery-lightbox-open {
   margin: var(--bio-box-margin);
   width: min(42rem, calc(100% - (2 * var(--bio-box-margin))));
   max-width: min(42rem, calc(100% - (2 * var(--bio-box-margin))));
-  background-color: var(--bio-box-contact-bg);
-  box-shadow: 0 12px 40px rgba(33, 31, 31, 0.14);
+  background-color: var(--bg);
+  box-shadow: none;
+}
+
+.img-shop .biography-b h2,
+.img-contact .biography-b h2 {
+  color: var(--text);
 }
 
 .coda-container--timeline {
@@ -2198,9 +2216,8 @@ body.gallery-lightbox-open {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  background: var(--bio-box-contact-bg);
+  background: var(--bg);
   border: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
-  box-shadow: 0 1rem 2.5rem rgba(33, 31, 31, 0.1);
   transition:
     transform 0.45s ease,
     box-shadow 0.45s ease,
@@ -2275,7 +2292,7 @@ body.gallery-lightbox-open {
 .timeline-event__copy {
   flex-shrink: 0;
   padding: clamp(1rem, 2vw, 1.35rem) clamp(1.1rem, 2.5vw, 1.6rem);
-  background: var(--bio-box-contact-bg);
+  background: var(--bg);
 }
 
 .timeline-event__year {
