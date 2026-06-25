@@ -1274,19 +1274,9 @@ label {
   color: var(--text);
 }
 
-.home-header .home-span {
-  padding-top: 0;
+.home-header > p {
   margin: 0;
   color: var(--text);
-}
-
-.home-span {
-  font-family: var(--font-body);
-  display: flex;
-  font-size: var(--font-clamp-body-lg);
-  line-height: var(--line-height-body);
-  color: var(--text);
-  padding-top: 1rem;
 }
 
 .dob p {
