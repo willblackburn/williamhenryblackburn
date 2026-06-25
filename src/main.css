@@ -36,9 +36,10 @@ Site Design by Coda4 Design */
   --inverted-light: #211f1f;
   --inverted-dark: #f2f3f4;
 
-  --brandcolor1: #f7f3ed;
-  --brandcolor2: #ef8354;
-  --brandcolor3: #ef8354;
+  --brandcolor1: #5f7f62; /* Photography - oxidised tea green */
+  --brandcolor2: #c84a32; /* Paintings - Keymer vermilion */
+  --brandcolor3: #c9922e; /* Sketches - turmeric ochre */
+  --brandcolor4: #2f5f87; /* Architectural - blueprint indigo */
 
   --mobile-nav-height: 5rem;
   --sidebar-width-expanded: 12rem;
@@ -54,12 +55,12 @@ Site Design by Coda4 Design */
   --bio-box-opacity: 100%;
   --bio-box-bg: color-mix(
     in srgb,
-    var(--brandcolor1) var(--bio-box-opacity),
+    var(--bg-light) var(--bio-box-opacity),
     transparent
   );
   --bio-box-contact-bg: color-mix(
     in srgb,
-    var(--bg) var(--bio-box-opacity),
+    var(--bg-light) var(--bio-box-opacity),
     transparent
   );
   --bio-box-margin: clamp(0.875rem, 0.5rem + 2.25vw, 3rem);
@@ -329,8 +330,12 @@ body {
   text-transform: uppercase;
 }
 
-.coda-body ul li a:hover {
+.coda-body ul li a:hover:not(.logo-image) {
   box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+}
+
+.logo-image:hover {
+  box-shadow: none;
 }
 
 .coda-container {
@@ -568,6 +573,22 @@ button.nav-link {
   height: 1.25rem;
   flex-shrink: 0;
   fill: currentColor;
+}
+
+.nav-item-has-submenu .collapsed-menu > li:nth-child(1) .nav-icon path {
+  fill: var(--brandcolor1);
+}
+
+.nav-item-has-submenu .collapsed-menu > li:nth-child(2) .nav-icon path {
+  fill: var(--brandcolor2);
+}
+
+.nav-item-has-submenu .collapsed-menu > li:nth-child(3) .nav-icon path {
+  fill: var(--brandcolor3);
+}
+
+.nav-item-has-submenu .collapsed-menu > li:nth-child(4) .nav-icon path {
+  fill: var(--brandcolor4);
 }
 
 .nav-label {
@@ -1932,7 +1953,7 @@ body.gallery-lightbox-open {
   font-size: var(--font-clamp-body);
   line-height: var(--line-height-ui);
   color: var(--text);
-  background-color: var(--brandcolor1);
+  background-color: var(--bg-light);
   border: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
   padding: 0.65rem 0.75rem;
 }
