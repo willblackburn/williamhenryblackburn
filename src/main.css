@@ -489,6 +489,23 @@ p {
     background-position: center bottom;
   }
 
+  .project-about .about-sticky-heading {
+    position: -webkit-sticky;
+    position: sticky;
+    top: var(--mobile-nav-height);
+    z-index: 2;
+    margin-inline: calc(-1 * var(--bio-box-padding));
+    padding-inline: var(--bio-box-padding);
+    padding-block: 0.75rem 0.5rem;
+    margin-bottom: 0.35em;
+    background-color: var(--bg);
+    box-shadow: 0 0.35rem 0 var(--bg);
+  }
+
+  .project-about .about-sticky-heading > :is(h1, h2, h3) {
+    margin: 0;
+  }
+
   .left .logo-image {
     display: none;
   }
