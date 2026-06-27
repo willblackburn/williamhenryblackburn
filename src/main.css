@@ -22,8 +22,12 @@ Site Design by Coda4 Design */
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--brandcolor3);
+  background: color-mix(in srgb, var(--text) 22%, var(--bg));
   border-radius: 10px;
+}
+
+html {
+  scrollbar-color: color-mix(in srgb, var(--text) 22%, var(--bg)) var(--bg);
 }
 
 :root {
