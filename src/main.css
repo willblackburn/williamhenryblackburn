@@ -403,11 +403,11 @@ h6,
 h1 {
   font-size: var(--font-clamp-h1);
   font-weight: 600;
-  color: var(--text-light);
+  color: var(--text);
 }
 
 h2 {
-  color: var(--text-light);
+  color: var(--text);
   font-size: var(--font-clamp-h2);
   margin-bottom: 0.35em;
 }
@@ -492,11 +492,11 @@ p {
   .project-about .about-sticky-heading {
     position: -webkit-sticky;
     position: sticky;
-    top: var(--mobile-nav-height);
+    top: calc(var(--mobile-nav-height) - 0.5rem);
     z-index: 2;
     margin-inline: calc(-1 * var(--bio-box-padding));
     padding-inline: var(--bio-box-padding);
-    padding-block: 0.75rem 0.5rem;
+    padding-block: 0.35rem 0.5rem;
     margin-bottom: 0.35em;
     background-color: var(--bg);
     box-shadow: 0 0.35rem 0 var(--bg);
@@ -2519,8 +2519,8 @@ body.gallery-lightbox-open {
   color: #0000;
   padding-block: var(--b);
   background:
-    linear-gradient(var(--c) 50%, #000 0) 0% calc(100% - var(--_p, 0%)) / 100%
-      200%,
+    linear-gradient(var(--c) 50%, var(--text) 0) 0%
+      calc(100% - var(--_p, 0%)) / 100% 200%,
     linear-gradient(var(--c) 0 0) 0% var(--_p, 0%) / var(--_p, 0%) var(--b)
       no-repeat;
   -webkit-background-clip: text, padding-box;
