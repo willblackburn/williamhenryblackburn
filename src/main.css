@@ -1228,6 +1228,7 @@ label {
     grid-row: 1;
     align-self: end;
     justify-self: start;
+    background-color: transparent;
   }
 }
 
@@ -1249,7 +1250,7 @@ label {
 }
 
 .home-header {
-  background-color: transparent;
+  background-color: var(--bg);
 }
 
 .biography,
