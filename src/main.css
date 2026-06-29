@@ -1624,16 +1624,16 @@ label {
 
   .img7 .about-account-list {
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 0.25rem 1rem;
+    gap: 0.4rem 1rem;
   }
 
   .img7 .biography > .about-sticky-heading + .keymer-period,
   .img7 .biography > .hover-a + .keymer-period {
-    margin-top: 1.5rem;
+    margin-top: 2.25rem;
   }
 
   .img7 .biography .keymer-period + .keymer-period {
-    margin-top: 1.35rem;
+    margin-top: 2.25rem;
   }
 }
 
