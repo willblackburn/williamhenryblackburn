@@ -1448,6 +1448,11 @@ label {
   background-position: 80% 100%;
 }
 
+.img8 {
+  --about-bg-image: url(/img/whb-caves-1.webp);
+  background-position: 45% 100%;
+}
+
 .biography {
   grid-column: 1 / span 12;
   grid-row: 105 / span 5;
@@ -1613,14 +1618,13 @@ label {
 }
 
 @media screen and (min-width: 991px) {
-  .img7 .keymer-period:first-of-type .about-account-list {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 0.15rem 0.85rem;
+  .img7 .biography {
+    max-width: min(92vw, 82rem);
   }
 
-  .img7 .keymer-period:first-of-type .about-account-list li {
-    font-size: clamp(0.8125rem, 0.3vw + 0.78rem, 0.9375rem);
-    line-height: 1.25;
+  .img7 .about-account-list {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.25rem 1rem;
   }
 
   .img7 .biography > .about-sticky-heading + .keymer-period,
@@ -1629,7 +1633,7 @@ label {
   }
 
   .img7 .biography .keymer-period + .keymer-period {
-    margin-top: 1.75rem;
+    margin-top: 1.35rem;
   }
 }
 
@@ -1727,6 +1731,10 @@ label {
 
   .img6::before {
     background-position: 45% center;
+  }
+
+  .img8::before {
+    background-position: 40% center;
   }
 
   .img6 .biography-a {
