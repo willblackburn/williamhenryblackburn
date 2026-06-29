@@ -1570,6 +1570,7 @@ label {
   display: block;
 }
 
+.img7 .biography > .about-sticky-heading + .keymer-period,
 .img7 .biography > .hover-a + .keymer-period {
   margin-top: 2.25rem;
 }
@@ -1609,6 +1610,27 @@ label {
   font-weight: 600;
   color: var(--brandcolor2);
   line-height: var(--line-height-ui);
+}
+
+@media screen and (min-width: 991px) {
+  .img7 .keymer-period:first-of-type .about-account-list {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 0.15rem 0.85rem;
+  }
+
+  .img7 .keymer-period:first-of-type .about-account-list li {
+    font-size: clamp(0.8125rem, 0.3vw + 0.78rem, 0.9375rem);
+    line-height: 1.25;
+  }
+
+  .img7 .biography > .about-sticky-heading + .keymer-period,
+  .img7 .biography > .hover-a + .keymer-period {
+    margin-top: 1.5rem;
+  }
+
+  .img7 .biography .keymer-period + .keymer-period {
+    margin-top: 1.75rem;
+  }
 }
 
 .project-wrapper {
