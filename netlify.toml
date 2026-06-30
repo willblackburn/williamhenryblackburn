@@ -5,6 +5,9 @@
   NODE_VERSION = "20"
   PNPM_VERSION = "10.34.4"
 
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 # Do not set publish — Netlify's Next.js runtime handles output.
 # In the Netlify UI, clear any legacy "Publish directory" (e.g. dist).
 
