@@ -1,11 +1,17 @@
 [build]
-  command = "pnpm build"
+  command = "corepack enable && pnpm build"
 
 [build.environment]
   NODE_VERSION = "20"
 
-[[plugins]]
-  package = "@netlify/plugin-nextjs"
+# Do not set publish — Netlify's Next.js runtime handles output.
+# In the Netlify UI, clear any legacy "Publish directory" (e.g. dist).
+
+[context.production]
+  command = "corepack enable && pnpm build"
+
+[context.deploy-preview]
+  command = "corepack enable && pnpm build"
 
 # Legacy Vite HTML routes -> Next.js App Router paths
 [[redirects]]
