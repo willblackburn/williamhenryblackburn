@@ -1,72 +1,136 @@
-let isMenuOpen = false
-let mq
+(function () {
+  var isMenuOpen = false
+  var codaBody = null
+  var menuToggle = null
+  var overlay = null
 
-const codaBody = document.querySelector('.coda-body')
-const menuToggle = document.querySelector('.menu-toggle')
-const worksSubmenu = document.getElementById('menu-showcase')
-const worksPages = new Set([
-  'photography.html',
-  'paintings.html',
-  'sketches.html',
-  'architecture.html',
-])
-const currentPage = window.location.pathname.split('/').pop() || 'index.html'
+  function ensureOverlay() {
+    if (!codaBody) return null
+    overlay = codaBody.querySelector('.mobile-nav-overlay')
+    if (overlay) return overlay
 
-if (worksSubmenu && worksPages.has(currentPage)) {
-  worksSubmenu.checked = true
-}
+    overlay = document.createElement('div')
+    overlay.className = 'mobile-nav-overlay'
+    overlay.setAttribute('aria-hidden', 'true')
+    codaBody.appendChild(overlay)
+    return overlay
+  }
 
-document.querySelectorAll('.collapsed-menu > li').forEach((el) => {
-  el.addEventListener('click', (event) => {
-    const textContainer = document.querySelector('.right > .text-container')
-    if (textContainer) {
-      textContainer.innerHTML = event.target.innerHTML
+  function setMenuOpen(open) {
+    if (!codaBody || !menuToggle) return
+    isMenuOpen = open
+    codaBody.classList.toggle('nav-open', open)
+    menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false')
+    if (overlay) overlay.classList.toggle('is-visible', open)
+  }
+
+  function closeMenu() {
+    setMenuOpen(false)
+  }
+
+  function openMenu() {
+    setMenuOpen(true)
+  }
+
+  function toggleMenu(event) {
+    if (event) {
+      event.preventDefault()
+      event.stopPropagation()
     }
-    if (window.matchMedia) {
-      mq = window.matchMedia('(min-width: 841px)')
-      onMediaChange(mq)
-    }
-  })
-})
+    if (isMenuOpen) closeMenu()
+    else openMenu()
+  }
 
-menuToggle?.addEventListener('click', (event) => {
-  event.stopPropagation()
-  if (!isMenuOpen) {
-    openMenu()
+  function onBodyClick(event) {
+    if (!isMenuOpen || !codaBody) return
+    var target = event.target
+    if (!target || !target.closest) return
+    if (
+      target.closest('.left') ||
+      target.closest('.menu-toggle') ||
+      target.closest('.mobile-top-bar')
+    ) {
+      return
+    }
+    closeMenu()
+  }
+
+  function onOverlayClick(event) {
+    if (event) {
+      event.preventDefault()
+      event.stopPropagation()
+    }
+    closeMenu()
+  }
+
+  function onMediaChange(mediaQuery) {
+    if (mediaQuery.matches) closeMenu()
+  }
+
+  function syncWorksSubmenu() {
+    var worksSubmenu = document.getElementById('menu-showcase')
+    if (!worksSubmenu) return
+
+    var pathname = window.location.pathname
+    var worksPaths = [
+      '/works/photography',
+      '/works/paintings',
+      '/works/sketches',
+      '/works/architecture',
+    ]
+    worksSubmenu.checked = worksPaths.some(function (path) {
+      return pathname.indexOf(path) === 0
+    })
+  }
+
+  var listenersBound = false
+
+  function onNavLinkClick(event) {
+    if (event.target.closest && event.target.closest('.left a.nav-link')) {
+      closeMenu()
+    }
+  }
+
+  function initResponsiveNav() {
+    codaBody = document.querySelector('.coda-body')
+    menuToggle = document.querySelector('.menu-toggle')
+    if (!codaBody || !menuToggle) return false
+
+    ensureOverlay()
+    syncWorksSubmenu()
+
+    if (!listenersBound) {
+      listenersBound = true
+      menuToggle.addEventListener('click', toggleMenu)
+      if (overlay) overlay.addEventListener('click', onOverlayClick)
+      codaBody.addEventListener('click', onBodyClick)
+      codaBody.addEventListener('click', onNavLinkClick)
+
+      if (window.matchMedia) {
+        var mq = window.matchMedia('(min-width: 841px)')
+        mq.addEventListener('change', onMediaChange)
+        onMediaChange(mq)
+      }
+    }
+
+    return true
+  }
+
+  window.__closeMobileNav = closeMenu
+  window.__initResponsiveNav = initResponsiveNav
+
+  function boot() {
+    if (initResponsiveNav()) return
+    window.setTimeout(function () {
+      if (!initResponsiveNav()) {
+        window.setTimeout(initResponsiveNav, 500)
+      }
+    }, 0)
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot)
   } else {
-    closeMenu()
+    boot()
   }
-})
-
-codaBody.addEventListener('click', (event) => {
-  if (
-    isMenuOpen &&
-    !event.target.closest('.left') &&
-    !event.target.closest('.menu-toggle') &&
-    !event.target.closest('.mobile-top-bar')
-  ) {
-    closeMenu()
-  }
-})
-
-if (window.matchMedia) {
-  mq = window.matchMedia('(min-width: 841px)')
-  mq.addEventListener('change', onMediaChange)
-  onMediaChange(mq)
-}
-
-function closeMenu() {
-  codaBody.classList.remove('nav-open')
-  isMenuOpen = false
-}
-
-function openMenu() {
-  codaBody.classList.add('nav-open')
-  isMenuOpen = true
-}
-
-function onMediaChange(mediaQuery) {
-  if (mediaQuery.matches) {
-    closeMenu()
-  }
-}
+})()

@@ -1,0 +1,16 @@
+﻿{
+  "name": "grandad-site-legacy",
+  "private": true,
+  "packageManager": "pnpm@11.9.0",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "lenis": "^1.3.23",
+    "vite": "^6.3.5"
+  }
+}
