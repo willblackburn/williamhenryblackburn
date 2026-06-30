@@ -2,7 +2,8 @@
   command = "pnpm build"
 
 [build.environment]
-  NODE_VERSION = "22.13.0"
+  NODE_VERSION = "20"
+  PNPM_VERSION = "10.34.4"
 
 # Do not set publish — Netlify's Next.js runtime handles output.
 # In the Netlify UI, clear any legacy "Publish directory" (e.g. dist).
