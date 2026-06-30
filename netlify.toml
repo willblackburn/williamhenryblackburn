@@ -1,5 +1,5 @@
 [build]
-  command = "corepack enable && pnpm build"
+  command = "pnpm build"
 
 [build.environment]
   NODE_VERSION = "20"
@@ -8,10 +8,10 @@
 # In the Netlify UI, clear any legacy "Publish directory" (e.g. dist).
 
 [context.production]
-  command = "corepack enable && pnpm build"
+  command = "pnpm build"
 
 [context.deploy-preview]
-  command = "corepack enable && pnpm build"
+  command = "pnpm build"
 
 # Legacy Vite HTML routes -> Next.js App Router paths
 [[redirects]]
