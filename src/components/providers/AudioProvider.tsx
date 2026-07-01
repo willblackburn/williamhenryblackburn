@@ -46,12 +46,14 @@ function loadYouTubeApi(onReady: () => void) {
   const tag = document.createElement('script');
   tag.id = 'youtube-iframe-api';
   tag.src = 'https://www.youtube.com/iframe_api';
+  tag.async = true;
   document.head.appendChild(tag);
 }
 
 export function AudioProvider({ children }: { children: ReactNode }) {
   const playerRef = useRef<YTPlayer | null>(null);
   const playerReadyRef = useRef(false);
+  const initStartedRef = useRef(false);
   const pendingPlayRef = useRef(false);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -63,13 +65,61 @@ export function AudioProvider({ children }: { children: ReactNode }) {
     setIsPlaying(Boolean(playing));
   }, []);
 
+  const createPlayer = useCallback(() => {
+    if (playerRef.current) return;
+
+    const host = document.getElementById(PLAYER_HOST_ID);
+    if (!host) return;
+
+    host.innerHTML = '';
+
+    playerRef.current = new window.YT!.Player(PLAYER_HOST_ID, {
+      height: '1',
+      width: '1',
+      videoId: YOUTUBE_AUDIO_ID,
+      playerVars: {
+        autoplay: 0,
+        controls: 0,
+        disablekb: 1,
+        fs: 0,
+        loop: 1,
+        playlist: YOUTUBE_AUDIO_ID,
+        modestbranding: 1,
+        playsinline: 1,
+        rel: 0,
+      },
+      events: {
+        onReady: () => {
+          playerReadyRef.current = true;
+          if (pendingPlayRef.current) {
+            playerRef.current?.playVideo();
+            pendingPlayRef.current = false;
+          }
+          syncPlayingState();
+        },
+        onStateChange: () => syncPlayingState(),
+        onError: () => {
+          pendingPlayRef.current = false;
+          syncPlayingState();
+        },
+      },
+    });
+  }, [syncPlayingState]);
+
+  const ensurePlayer = useCallback(() => {
+    if (initStartedRef.current) return;
+    initStartedRef.current = true;
+    loadYouTubeApi(createPlayer);
+  }, [createPlayer]);
+
   const playAudio = useCallback(() => {
+    ensurePlayer();
     if (!playerReadyRef.current || !playerRef.current) {
       pendingPlayRef.current = true;
       return;
     }
     playerRef.current.playVideo();
-  }, []);
+  }, [ensurePlayer]);
 
   const pauseAudio = useCallback(() => {
     pendingPlayRef.current = false;
@@ -82,64 +132,16 @@ export function AudioProvider({ children }: { children: ReactNode }) {
   }, [isPlaying, pauseAudio, playAudio]);
 
   useEffect(() => {
-    let cancelled = false;
-
-    function createPlayer() {
-      if (cancelled || playerRef.current) return;
-
-      const host = document.getElementById(PLAYER_HOST_ID);
-      if (!host) return;
-
-      host.innerHTML = '';
-
-      playerRef.current = new window.YT!.Player(PLAYER_HOST_ID, {
-        height: '1',
-        width: '1',
-        videoId: YOUTUBE_AUDIO_ID,
-        playerVars: {
-          autoplay: 0,
-          controls: 0,
-          disablekb: 1,
-          fs: 0,
-          loop: 1,
-          playlist: YOUTUBE_AUDIO_ID,
-          modestbranding: 1,
-          playsinline: 1,
-          rel: 0,
-        },
-        events: {
-          onReady: () => {
-            if (cancelled) return;
-            playerReadyRef.current = true;
-            if (pendingPlayRef.current) {
-              playerRef.current?.playVideo();
-              pendingPlayRef.current = false;
-            }
-            syncPlayingState();
-          },
-          onStateChange: () => syncPlayingState(),
-          onError: () => {
-            pendingPlayRef.current = false;
-            syncPlayingState();
-          },
-        },
-      });
-    }
-
-    const initTimer = window.setTimeout(() => {
-      loadYouTubeApi(createPlayer);
-    }, 0);
-
     return () => {
-      cancelled = true;
-      window.clearTimeout(initTimer);
       pendingPlayRef.current = false;
       playerReadyRef.current = false;
+      initStartedRef.current = false;
       playerRef.current?.destroy?.();
       playerRef.current = null;
       document.getElementById(PLAYER_HOST_ID)?.replaceChildren();
+      document.getElementById('youtube-iframe-api')?.remove();
     };
-  }, [syncPlayingState]);
+  }, []);
 
   const isMutedUi = !isPlaying;
 

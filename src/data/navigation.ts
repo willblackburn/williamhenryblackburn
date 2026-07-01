@@ -11,6 +11,8 @@ export type NavSubmenuItem = {
   type: 'submenu';
   label: string;
   iconPath: NavIconPath;
+  menuId: string;
+  pathPrefix: string;
   children: NavLinkItem[];
 };
 
@@ -34,6 +36,8 @@ export const navigationItems: NavItem[] = [
   {
     type: 'submenu',
     label: 'Works',
+    menuId: 'menu-works',
+    pathPrefix: '/works',
     iconPath: 'M3 3h8v8H3V3Zm10 0h8v8h-8V3ZM3 13h8v8H3v-8Zm10 0h8v8h-8v-8Z',
     children: [
       {
@@ -66,11 +70,13 @@ export const navigationItems: NavItem[] = [
     ],
   },
   {
-    type: 'link',
+    type: 'submenu',
     label: 'Archive',
-    href: '/archive',
+    menuId: 'menu-archive',
+    pathPrefix: '/archive',
     iconPath:
       'M4 4h16v4H4V4Zm0 6h10v10H4V10Zm12 0h4v10h-4V10ZM6 6h2v2H6V6Zm0 4h2v2H6v-2Zm0 4h2v2H6v-2Z',
+    children: [],
   },
   {
     type: 'link',

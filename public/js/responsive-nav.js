@@ -67,19 +67,24 @@
     if (mediaQuery.matches) closeMenu()
   }
 
-  function syncWorksSubmenu() {
-    var worksSubmenu = document.getElementById('menu-showcase')
-    if (!worksSubmenu) return
-
+  function syncSubmenus() {
     var pathname = window.location.pathname
-    var worksPaths = [
-      '/works/photography',
-      '/works/paintings',
-      '/works/sketches',
-      '/works/architecture',
-    ]
-    worksSubmenu.checked = worksPaths.some(function (path) {
-      return pathname.indexOf(path) === 0
+    var submenus = document.querySelectorAll('.nav-item-has-submenu > input')
+
+    submenus.forEach(function (input) {
+      if (!(input instanceof HTMLInputElement)) return
+
+      var prefix =
+        input.id === 'menu-works'
+          ? '/works'
+          : input.id === 'menu-archive'
+            ? '/archive'
+            : null
+
+      if (!prefix) return
+
+      input.checked =
+        pathname === prefix || pathname.indexOf(prefix + '/') === 0
     })
   }
 
@@ -97,7 +102,7 @@
     if (!codaBody || !menuToggle) return false
 
     ensureOverlay()
-    syncWorksSubmenu()
+    syncSubmenus()
 
     if (!listenersBound) {
       listenersBound = true

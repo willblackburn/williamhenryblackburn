@@ -43,7 +43,7 @@ function NavLink({
   );
 }
 
-function renderNavItem(item: NavItem, worksSubmenuOpen: boolean) {
+function renderNavItem(item: NavItem, openSubmenus: Record<string, boolean>) {
   if (item.type === 'link') {
     return (
       <li key={item.href}>
@@ -52,15 +52,17 @@ function renderNavItem(item: NavItem, worksSubmenuOpen: boolean) {
     );
   }
 
+  const submenuOpen = openSubmenus[item.menuId] ?? false;
+
   return (
-    <li className="nav-item-has-submenu" key={item.label}>
+    <li className="nav-item-has-submenu" key={item.menuId}>
       <input
         type="checkbox"
-        id="menu-showcase"
-        defaultChecked={worksSubmenuOpen}
-        key={worksSubmenuOpen ? 'open' : 'closed'}
+        id={item.menuId}
+        defaultChecked={submenuOpen}
+        key={submenuOpen ? `${item.menuId}-open` : `${item.menuId}-closed`}
       />
-      <label htmlFor="menu-showcase" className="nav-link">
+      <label htmlFor={item.menuId} className="nav-link">
         <NavIcon path={item.iconPath} />
         <span className="nav-label">{item.label}</span>
       </label>
@@ -83,7 +85,7 @@ function renderNavItem(item: NavItem, worksSubmenuOpen: boolean) {
 export function SidebarNav() {
   const { collapsed, toggle: toggleSidebar } = useSidebarCollapse();
   const { isDark, toggleTheme } = useTheme();
-  const { worksSubmenuOpen } = useMobileNav();
+  const { openSubmenus } = useMobileNav();
 
   return (
     <div className="left" id="site-sidebar-nav">
@@ -100,7 +102,7 @@ export function SidebarNav() {
           </Link>
         </li>
 
-        {navigationItems.map((item) => renderNavItem(item, worksSubmenuOpen))}
+        {navigationItems.map((item) => renderNavItem(item, openSubmenus))}
 
         <li className="menu-footer">
           <div className="coda-audio-light-container">

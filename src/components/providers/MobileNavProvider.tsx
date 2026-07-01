@@ -8,24 +8,31 @@ import {
   type ReactNode,
 } from 'react';
 
-const WORKS_PATHS = [
-  '/works/photography',
-  '/works/paintings',
-  '/works/sketches',
-  '/works/architecture',
-];
+import { navigationItems } from '@/data/navigation';
 
 type MobileNavContextValue = {
-  worksSubmenuOpen: boolean;
+  openSubmenus: Record<string, boolean>;
 };
 
 const MobileNavContext = createContext<MobileNavContextValue | null>(null);
 
 export function MobileNavProvider({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const worksSubmenuOpen = WORKS_PATHS.some((path) => pathname.startsWith(path));
 
-  const value = useMemo(() => ({ worksSubmenuOpen }), [worksSubmenuOpen]);
+  const openSubmenus = useMemo(() => {
+    const states: Record<string, boolean> = {};
+
+    for (const item of navigationItems) {
+      if (item.type !== 'submenu') continue;
+      states[item.menuId] =
+        pathname === item.pathPrefix ||
+        pathname.startsWith(`${item.pathPrefix}/`);
+    }
+
+    return states;
+  }, [pathname]);
+
+  const value = useMemo(() => ({ openSubmenus }), [openSubmenus]);
 
   return (
     <MobileNavContext.Provider value={value}>{children}</MobileNavContext.Provider>
