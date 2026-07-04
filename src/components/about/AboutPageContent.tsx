@@ -38,8 +38,11 @@ export function AboutPageContent() {
             William joined D.J. Keymer &amp; Co. Ltd. as Art Director in Bombay
             before transferring to the Calcutta head office, working within one
             of India&apos;s most important mid-century advertising and design
-            environments and contributing to a commercial art world that shaped
-            modern visual communication across the subcontinent.
+            environments at a moment when the agency&apos;s studios paired
+            experienced art direction with younger visualisers finding their
+            feet—some of whom would later become central to Indian design and
+            film culture. His work contributed to a commercial art world that
+            shaped modern visual communication across the subcontinent.
           </p>
           <p className="about-info">
             The Calcutta circle was historically significant. William worked
@@ -68,11 +71,14 @@ export function AboutPageContent() {
               Satyajit Ray
             </a>
             —names that would come to define Indian advertising, publishing,
-            typography and film culture. Much of his Keymer work, like the wider
-            body of his own art and design, has remained in the family archive
-            for more than thirty years and has never been publicly shown, even
-            though it belongs to the same wider design world. The agency later
-            became part of the lineage that led to{' '}
+            typography and film culture.
+          </p>
+          <p className="about-info">
+            Much of his Keymer work, like the wider body of his own art and
+            design, has remained in the family archive for more than thirty
+            years and has never been publicly shown, even though it belongs to
+            the same wider design world. The agency later became part of the
+            lineage that led to{' '}
             <a
               href="https://www.ogilvy.com/"
               target="_blank"
@@ -291,7 +297,7 @@ export function AboutPageContent() {
       <div className="section project-about img2" id="about">
         <div className="biography-b">
           <div className="about-sticky-heading">
-            <HoverHeading as="h2">Love of India</HoverHeading>
+            <HoverHeading as="h2">Love For India</HoverHeading>
           </div>
           <p className="about-info">
             India became one of the defining chapters of William&apos;s life,

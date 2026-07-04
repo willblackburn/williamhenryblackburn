@@ -8,10 +8,11 @@ export type TimelineEvent = {
 
 export const timelineEvents: TimelineEvent[] = [
   {
-    year: 'Date to confirm',
+    year: '1918',
+    datetime: '1918',
     title: 'Birth and family background',
-    location: 'To confirm',
-    text: 'William Henry Blackburn is born. This timeline begins with his family background, early surroundings, and any first signs of his artistic ability.',
+    location: 'England',
+    text: 'William Henry Blackburn is born in 1918. This timeline begins with his family background, early surroundings, and the first signs of his artistic ability.',
   },
   {
     year: '1933–1936',

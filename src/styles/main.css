@@ -674,10 +674,6 @@ a.nav-link:hover,
   color: #999;
 }
 
-.collapsed-menu .nav-link {
-  padding-left: 2.75rem;
-}
-
 .link-expanded {
   font-size: smaller;
 }
