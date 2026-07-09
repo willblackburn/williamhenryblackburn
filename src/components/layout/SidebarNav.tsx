@@ -4,32 +4,27 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 import { PersistentAudioPlayer } from '@/components/audio/PersistentAudioPlayer';
-import { homeHref, navigationItems, type NavItem } from '@/data/navigation';
+import { WhbIcon } from '@/components/icons/WhbIcon';
+import type { WhbIconName } from '@/components/icons/types';
 import { useMobileNav } from '@/components/providers/MobileNavProvider';
+import { homeHref, navigationItems, type NavItem } from '@/data/navigation';
 import { useSidebarCollapse } from '@/hooks/useSidebarCollapse';
 import { useTheme } from '@/hooks/useTheme';
-
-function NavIcon({ path }: { path: string }) {
-  return (
-    <svg className="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
-      <path fill="currentColor" d={path} />
-    </svg>
-  );
-}
 
 function NavLink({
   href,
   label,
-  iconPath,
+  icon,
   sub = false,
 }: {
   href: string;
   label: string;
-  iconPath: string;
+  icon: WhbIconName;
   sub?: boolean;
 }) {
   const pathname = usePathname();
-  const isCurrent = pathname === href || (href !== homeHref && pathname.startsWith(`${href}/`));
+  const isCurrent =
+    pathname === href || (href !== homeHref && pathname.startsWith(`${href}/`));
 
   return (
     <Link
@@ -37,7 +32,7 @@ function NavLink({
       className={sub ? 'nav-link nav-link--sub' : 'nav-link'}
       aria-current={isCurrent ? 'page' : undefined}
     >
-      <NavIcon path={iconPath} />
+      <WhbIcon name={icon} className="nav-icon" size="md" tone="inherit" />
       <span className="nav-label">{label}</span>
     </Link>
   );
@@ -47,7 +42,7 @@ function renderNavItem(item: NavItem, openSubmenus: Record<string, boolean>) {
   if (item.type === 'link') {
     return (
       <li key={item.href}>
-        <NavLink href={item.href} label={item.label} iconPath={item.iconPath} />
+        <NavLink href={item.href} label={item.label} icon={item.icon} />
       </li>
     );
   }
@@ -63,7 +58,7 @@ function renderNavItem(item: NavItem, openSubmenus: Record<string, boolean>) {
         key={submenuOpen ? `${item.menuId}-open` : `${item.menuId}-closed`}
       />
       <label htmlFor={item.menuId} className="nav-link">
-        <NavIcon path={item.iconPath} />
+        <WhbIcon name={item.icon} className="nav-icon" size="md" tone="inherit" />
         <span className="nav-label">{item.label}</span>
       </label>
       <ul className="collapsed-menu">
@@ -72,7 +67,7 @@ function renderNavItem(item: NavItem, openSubmenus: Record<string, boolean>) {
             <NavLink
               href={child.href}
               label={child.label}
-              iconPath={child.iconPath}
+              icon={child.icon}
               sub
             />
           </li>
@@ -113,18 +108,12 @@ export function SidebarNav() {
               aria-label={collapsed ? 'Expand navigation' : 'Collapse navigation'}
               onClick={toggleSidebar}
             >
-              <svg
+              <WhbIcon
+                name="nav-collapse"
                 className="sidebar-toggle-icon"
-                viewBox="0 0 24 24"
-                width="16"
-                height="16"
-                aria-hidden="true"
-              >
-                <path
-                  fill="currentColor"
-                  d="M15.41 16.59 10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41Z"
-                />
-              </svg>
+                size="sm"
+                tone="inherit"
+              />
             </button>
             <label className="theme-switch" htmlFor="checkbox">
               <input
