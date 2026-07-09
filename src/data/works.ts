@@ -100,6 +100,14 @@ export const worksByCategory: WorksByCategory = {
       src: '/img/paintings/whb-014.webp',
       alt: 'William Henry Blackburn landscape painting of a village in rolling green and yellow hills under a bright sun',
     },
+    {
+      src: '/img/paintings/whb-015.webp',
+      alt: 'William Henry Blackburn painting of ballet dancers rehearsing in a blue-lit studio with a barre',
+    },
+    {
+      src: '/img/paintings/whb-016.webp',
+      alt: 'William Henry Blackburn painting of a wet street with cars and figures outside brick buildings',
+    },
   ],
   sketches: [
     {
