@@ -7,7 +7,7 @@ export function AboutPageContent() {
   return (
     <div className='portfolio-item-container'>
       {/* Section About — img4 */}
-      <div className='section project-about img4' id='about'>
+      <div className='section project-about img4 is-bg-visible' id='about'>
         <div className='biography'>
           <div className='about-sticky-heading'>
             <HoverHeading as='h1'>

@@ -1183,12 +1183,23 @@ label {
 -------------------------------------------------------------------------------*/
 
 .project-full-width,
-.project-about,
 .img-contact,
 .img-shop {
   background-image: var(--image-blend-overlay), var(--about-bg-image);
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+/* About section backgrounds load on demand via .is-bg-visible (see LazySectionBackgrounds).
+   First section stays eager for LCP / no-JS fallback. */
+.project-about {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.project-about.is-bg-visible,
+.portfolio-item-container > .section.project-about:first-child {
+  background-image: var(--image-blend-overlay), var(--about-bg-image);
 }
 
 .project-full-width > *,
@@ -1397,7 +1408,8 @@ label {
     position: relative;
   }
 
-  .project-about.img1::before {
+  .project-about.img1.is-bg-visible::before,
+  .portfolio-item-container > .section.project-about.img1:first-child::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -1731,30 +1743,39 @@ label {
     margin-inline: var(--bio-box-padding);
     aspect-ratio: 4 / 3;
     max-height: 45vh;
-    background-image: var(--image-blend-overlay), var(--about-bg-image);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
   }
 
-  .project-about.img1::before {
+  .project-about.is-bg-visible::before,
+  .portfolio-item-container > .section.project-about:first-child::before {
+    background-image: var(--image-blend-overlay), var(--about-bg-image);
+  }
+
+  .project-about.img1.is-bg-visible::before,
+  .portfolio-item-container > .section.project-about.img1:first-child::before {
     transform: scaleX(-1);
     background-position: 20% center;
   }
 
-  .img4::before {
+  .img4.is-bg-visible::before,
+  .portfolio-item-container > .section.img4:first-child::before {
     background-position: 35% center;
   }
 
-  .img5::before {
+  .img5.is-bg-visible::before,
+  .portfolio-item-container > .section.img5:first-child::before {
     background-position: 40% center;
   }
 
-  .img6::before {
+  .img6.is-bg-visible::before,
+  .portfolio-item-container > .section.img6:first-child::before {
     background-position: 45% center;
   }
 
-  .img8::before {
+  .img8.is-bg-visible::before,
+  .portfolio-item-container > .section.img8:first-child::before {
     background-position: 40% center;
   }
 

@@ -16,7 +16,13 @@ export function WorksGallery({ category }: WorksGalleryProps) {
           <div className="gallery">
             {items.map((item, index) => (
               <div className="image-wrapper" key={`${item.src}-${index}`}>
-                <img src={item.src} alt={item.alt} className="photo" loading="lazy" />
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  className="photo"
+                  loading={index === 0 ? 'eager' : 'lazy'}
+                  fetchPriority={index === 0 ? 'high' : undefined}
+                />
               </div>
             ))}
           </div>

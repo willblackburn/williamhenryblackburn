@@ -1,9 +1,10 @@
 'use client';
 
+import { LazySectionBackgrounds } from '@/components/about/LazySectionBackgrounds';
+import { GalleryPopup } from '@/components/gallery/GalleryPopup';
 import { AudioProvider } from '@/components/providers/AudioProvider';
 import { MobileNavProvider } from '@/components/providers/MobileNavProvider';
 import { SmoothScrollProvider } from '@/components/providers/SmoothScrollProvider';
-import { GalleryPopup } from '@/components/gallery/GalleryPopup';
 import type { ReactNode } from 'react';
 
 export function ClientProviders({ children }: { children: ReactNode }) {
@@ -12,6 +13,7 @@ export function ClientProviders({ children }: { children: ReactNode }) {
       <MobileNavProvider>
         <SmoothScrollProvider>
           {children}
+          <LazySectionBackgrounds />
           <GalleryPopup />
         </SmoothScrollProvider>
       </MobileNavProvider>
