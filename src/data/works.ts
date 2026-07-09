@@ -96,6 +96,10 @@ export const worksByCategory: WorksByCategory = {
       src: '/img/paintings/whb-013.webp',
       alt: 'William Henry Blackburn painting of young dancers in pink costumes in a blue-lit rehearsal room',
     },
+    {
+      src: '/img/paintings/whb-014.webp',
+      alt: 'William Henry Blackburn landscape painting of a village in rolling green and yellow hills under a bright sun',
+    },
   ],
   sketches: [
     {
