@@ -27,22 +27,6 @@ export default function DjKeymerArchivePage() {
             together agency work, staff photographs, and related documents from
             that period.
           </p>
-
-          <div
-            className="about-archive"
-            aria-label="Archive material from D.J. Keymer & Co. Ltd."
-          >
-            <div className="about-archive-grid">
-              <div className="image-wrapper">
-                <img
-                  src="/img/dj-keymer-staff.png"
-                  alt="D.J. Keymer & Co. Ltd. staff photograph, Calcutta office"
-                  className="photo"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
         </FadeIn>
       </div>
     </div>
