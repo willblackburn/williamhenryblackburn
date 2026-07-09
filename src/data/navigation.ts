@@ -42,10 +42,10 @@ export const navigationItems: NavItem[] = [
     children: [
       {
         type: 'link',
-        label: 'Photography',
-        href: '/works/photography',
+        label: 'Sketches',
+        href: '/works/sketches',
         iconPath:
-          'M9.5 4 8 6H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-4l-1.5-2H9Zm2.5 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z',
+          'm14.06 4.94-8.12 8.12a3 3 0 0 0-.88 2.12V16h.82a3 3 0 0 0 2.12-.88l8.12-8.12-2.06-2.06ZM19 9.31l-1.41 1.41-2.13-2.12 1.41-1.41L19 9.31Z',
       },
       {
         type: 'link',
@@ -56,10 +56,10 @@ export const navigationItems: NavItem[] = [
       },
       {
         type: 'link',
-        label: 'Sketches',
-        href: '/works/sketches',
+        label: 'Photography',
+        href: '/works/photography',
         iconPath:
-          'm14.06 4.94-8.12 8.12a3 3 0 0 0-.88 2.12V16h.82a3 3 0 0 0 2.12-.88l8.12-8.12-2.06-2.06ZM19 9.31l-1.41 1.41-2.13-2.12 1.41-1.41L19 9.31Z',
+          'M9.5 4 8 6H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-4l-1.5-2H9Zm2.5 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8Z',
       },
       {
         type: 'link',
@@ -76,7 +76,15 @@ export const navigationItems: NavItem[] = [
     pathPrefix: '/archive',
     iconPath:
       'M4 4h16v4H4V4Zm0 6h10v10H4V10Zm12 0h4v10h-4V10ZM6 6h2v2H6V6Zm0 4h2v2H6v-2Zm0 4h2v2H6v-2Z',
-    children: [],
+    children: [
+      {
+        type: 'link',
+        label: 'D.J. Keymer',
+        href: '/archive/dj-keymer',
+        iconPath:
+          'M10 2h4a2 2 0 0 1 2 2v1h3a1 1 0 0 1 1 1v11a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V6a1 1 0 0 1 1-1h3V4a2 2 0 0 1 2-2Zm2 2v1h0V4Zm-5 4v9h10V8H7Z',
+      },
+    ],
   },
   {
     type: 'link',

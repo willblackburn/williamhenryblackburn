@@ -42,7 +42,6 @@ export const worksByCategory: WorksByCategory = {
     { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/photography/scenic-island.webp', alt: '' },
     { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/photography/india-dancer.webp', alt: '' },
     { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/photography/hindu-faces-7.webp', alt: '' },
-    { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/photography/indian-rail-workshop.webp', alt: '' },
   ],
   paintings: [
     { src: '/img/paintings/whb-001.webp', alt: 'indian girl lying on grass photography' },
@@ -57,10 +56,6 @@ export const worksByCategory: WorksByCategory = {
     { src: '/img/paintings/whb-010.webp', alt: 'indian girl lying on grass photography' },
     { src: '/img/paintings/whb-011.webp', alt: 'indian girl lying on grass photography' },
     { src: '/img/paintings/whb-012.webp', alt: 'indian girl lying on grass photography' },
-    { src: '/img/paintings/whb-012.webp', alt: 'indian girl lying on grass photography' },
-    { src: '/img/paintings/whb-012.webp', alt: 'indian girl lying on grass photography' },
-    { src: '/img/paintings/whb-012.webp', alt: 'indian girl lying on grass photography' },
-    { src: '/img/paintings/whb-012.webp', alt: 'indian girl lying on grass photography' },
   ],
   sketches: [
     { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/sketches/soldiers-fighting.webp', alt: 'indian girl lying on grass photography' },
@@ -71,10 +66,6 @@ export const worksByCategory: WorksByCategory = {
     { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/sketches/stahankas.webp', alt: 'indian girl lying on grass photography' },
     { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/sketches/animal-in-field.webp', alt: 'indian girl lying on grass photography' },
     { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/sketches/dhanlaxmi-sleeping.webp', alt: 'indian girl lying on grass photography' },
-    { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/sketches/animal-in-field.webp', alt: 'indian girl lying on grass photography' },
-    { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/sketches/animal-in-field.webp', alt: 'indian girl lying on grass photography' },
-    { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/sketches/animal-in-field.webp', alt: 'indian girl lying on grass photography' },
-    { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/sketches/animal-in-field.webp', alt: 'indian girl lying on grass photography' },
   ],
   architecture: [
     { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/architectural design/tower-a.webp', alt: 'indian girl lying on grass photography' },
@@ -84,11 +75,5 @@ export const worksByCategory: WorksByCategory = {
     { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/architectural design/hallway-a.webp', alt: 'indian girl lying on grass photography' },
     { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/architectural design/boac-room-a.webp', alt: 'indian girl lying on grass photography' },
     { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/architectural design/boac-room-b.webp', alt: 'indian girl lying on grass photography' },
-    { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/architectural design/tower-c.webp', alt: 'indian girl lying on grass photography' },
-    { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/architectural design/hallway-a.webp', alt: 'indian girl lying on grass photography' },
-    { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/architectural design/tower-a.webp', alt: 'indian girl lying on grass photography' },
-    { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/architectural design/tower-b.webp', alt: 'indian girl lying on grass photography' },
-    { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/architectural design/tower-c.webp', alt: 'indian girl lying on grass photography' },
-    { src: 'https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/architectural design/hallway-a.webp', alt: 'indian girl lying on grass photography' },
   ],
 };

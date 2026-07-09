@@ -6,8 +6,8 @@ export type ArchiveTopic = {
 
 export const archiveTopics: ArchiveTopic[] = [
   {
-    slug: 'dj-keymer-advertising',
-    title: 'D.J. Keymer & Advertising',
+    slug: 'dj-keymer',
+    title: 'D.J. Keymer & Co. Ltd.',
     description:
       'Art direction, advertising campaigns, and commercial design work from Bombay and Calcutta.',
   },

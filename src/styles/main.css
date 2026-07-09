@@ -113,18 +113,6 @@ html {
     color-mix(in srgb, var(--brandcolor2) 18%, transparent) 42%,
     color-mix(in srgb, #211f1f 22%, transparent) 100%
   );
-
-  --brandlogo-light: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/logo-dark.webp');
-  --brandlogo-dark: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/logo-light.webp');
-
-  --homeimage-light: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/bg-light-theme.webp');
-  --homeimage-dark: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/bg1.webp');
-
-  --presskitimage-light: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/pk-bg-light.webp');
-  --presskitimage-dark: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/pk-bg-dark.webp');
-
-  --homelogo-light: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/logo-dark.webp');
-  --homelogo-dark: url('https://dww3q6eyff3p0.cloudfront.net/williamhenryblackburn/img/logo-light.webp');
 }
 
 @media (prefers-color-scheme: light) {
@@ -154,11 +142,7 @@ html {
   --text: var(--text-dark);
   --bg: var(--bg-dark);
   --inverted: var(--inverted-dark);
-  --homeimage: var(--homeimage-dark);
-  --homelogo: var(--homelogo-dark);
-  --brandlogo: var(--brandlogo-dark);
   --navcta: var(--nav-cta-brand-dark);
-  --presskitimage: var(--presskitimage-dark);
   --image-filter: contrast(1.08) saturate(0.78) brightness(0.9);
   --image-blend-overlay: linear-gradient(
     165deg,
@@ -172,11 +156,7 @@ html {
   --text: var(--text-light);
   --bg: var(--bg-light);
   --inverted: var(--inverted-light);
-  --homeimage: var(--homeimage-light);
-  --homelogo: var(--homelogo-light);
-  --brandlogo: var(--brandlogo-light);
   --navcta: var(--nav-cta-brand-light);
-  --presskitimage: var(--presskitimage-light);
   --image-filter: contrast(1.06) saturate(0.84) brightness(0.97);
   --image-blend-overlay: linear-gradient(
     165deg,
@@ -1747,7 +1727,8 @@ label {
   .project-about::before {
     content: '';
     display: block;
-    width: 100%;
+    width: auto;
+    margin-inline: var(--bio-box-padding);
     aspect-ratio: 4 / 3;
     max-height: 45vh;
     background-image: var(--image-blend-overlay), var(--about-bg-image);
@@ -1870,12 +1851,13 @@ label {
   display: block;
   margin: auto;
   position: relative;
-  width: 60vw;
-  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-width: min(90vw, 100%);
   max-height: calc(100vh - 4rem);
   object-fit: contain;
-  box-shadow: 1px 1px 10px rgba(42, 42, 42, 0.85);
-  transition: all 0.4s ease-in;
+  box-shadow: none;
+  transition: opacity 0.4s ease-in;
   filter: var(--image-filter);
 }
 
